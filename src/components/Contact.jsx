@@ -1,59 +1,70 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { FiMail, FiMapPin, FiSend, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi'
-import { useLanguage } from '../context/LanguageContext'
-import './Contact.css'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  FiMail,
+  FiMapPin,
+  FiSend,
+  FiGithub,
+  FiLinkedin,
+  FiTwitter,
+} from "react-icons/fi";
+import { useLanguage } from "../context/LanguageContext";
+import "./Contact.css";
 
 const Contact = () => {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [status, setStatus] = useState('')
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setStatus('sending')
+    e.preventDefault();
+    setStatus("sending");
     setTimeout(() => {
-      setStatus('success')
-      setFormData({ name: '', email: '', message: '' })
-    }, 1500)
-  }
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    }, 1500);
+  };
 
   const contactInfo = [
     {
       icon: <FiMail />,
       label: t.contact.email,
-      value: 'tu@email.com',
-      href: 'mailto:tu@email.com'
+      value: "tu@email.com",
+      href: "mailto:tu@email.com",
     },
     {
       icon: <FiMapPin />,
       label: t.contact.location,
-      value: 'Tu Ciudad, País',
-      href: '#'
-    }
-  ]
+      value: "Tu Ciudad, País",
+      href: "#",
+    },
+  ];
 
   const socials = [
-    { icon: <FiGithub />, href: 'https://github.com/Maikell95', label: 'GitHub' },
-    { icon: <FiLinkedin />, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <FiTwitter />, href: 'https://twitter.com', label: 'Twitter' }
-  ]
+    {
+      icon: <FiGithub />,
+      href: "https://github.com/Maikell95",
+      label: "GitHub",
+    },
+    { icon: <FiLinkedin />, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: <FiTwitter />, href: "https://twitter.com", label: "Twitter" },
+  ];
 
   return (
     <section id="contact" className="section contact">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +72,7 @@ const Contact = () => {
         >
           {t.contact.title}
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="section-subtitle"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +83,7 @@ const Contact = () => {
         </motion.p>
 
         <div className="contact-content">
-          <motion.div 
+          <motion.div
             className="contact-info"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -111,7 +122,7 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          <motion.form 
+          <motion.form
             className="contact-form card"
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 50 }}
@@ -163,9 +174,9 @@ const Contact = () => {
               className="btn btn-primary submit-btn"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              disabled={status === 'sending'}
+              disabled={status === "sending"}
             >
-              {status === 'sending' ? (
+              {status === "sending" ? (
                 t.contact.sending
               ) : (
                 <>
@@ -174,8 +185,8 @@ const Contact = () => {
               )}
             </motion.button>
 
-            {status === 'success' && (
-              <motion.p 
+            {status === "success" && (
+              <motion.p
                 className="success-message"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -187,7 +198,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

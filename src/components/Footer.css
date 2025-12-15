@@ -16,7 +16,7 @@
   font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   display: inline-block;
   margin-bottom: 1rem;
 }
@@ -96,8 +96,13 @@
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 @media (max-width: 768px) {

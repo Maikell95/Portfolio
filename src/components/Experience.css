@@ -36,7 +36,7 @@
 }
 
 .timeline-item::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   width: 16px;
@@ -132,7 +132,7 @@
 }
 
 .timeline-description li::before {
-  content: '▹';
+  content: "▹";
   position: absolute;
   left: 0;
   color: var(--accent-primary);
@@ -152,7 +152,7 @@
   font-size: 0.8rem;
   color: var(--accent-primary);
   font-weight: 500;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
 }
 
 /* Responsive */
