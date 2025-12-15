@@ -1,28 +1,31 @@
 import { motion } from 'framer-motion'
 import { FiCode, FiLayout, FiDatabase, FiSmartphone } from 'react-icons/fi'
+import { useLanguage } from '../context/LanguageContext'
 import './About.css'
 
 const About = () => {
+  const { t } = useLanguage()
+
   const services = [
     {
       icon: <FiLayout />,
-      title: 'Diseño Web',
-      description: 'Interfaces modernas, intuitivas y atractivas que cautivan a los usuarios.'
+      title: t.about.webDesign,
+      description: t.about.webDesignDesc
     },
     {
       icon: <FiCode />,
-      title: 'Desarrollo Frontend',
-      description: 'Código limpio y optimizado con las últimas tecnologías del mercado.'
+      title: t.about.frontend,
+      description: t.about.frontendDesc
     },
     {
       icon: <FiDatabase />,
-      title: 'Backend',
-      description: 'APIs robustas y bases de datos escalables para tu aplicación.'
+      title: t.about.backend,
+      description: t.about.backendDesc
     },
     {
       icon: <FiSmartphone />,
-      title: 'Responsive',
-      description: 'Diseños que se adaptan perfectamente a cualquier dispositivo.'
+      title: t.about.responsive,
+      description: t.about.responsiveDesc
     }
   ]
 
@@ -35,7 +38,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Sobre Mí
+          {t.about.title}
         </motion.h2>
         <motion.p 
           className="section-subtitle"
@@ -44,7 +47,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
-          Conoce un poco más sobre mi perfil profesional
+          {t.about.subtitle}
         </motion.p>
 
         <div className="about-content">
@@ -55,30 +58,22 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h3>¡Hola! Soy un <span className="gradient-text">Desarrollador Web</span> apasionado</h3>
-            <p>
-              Con experiencia en el desarrollo de aplicaciones web modernas y funcionales. 
-              Me especializo en crear experiencias de usuario excepcionales utilizando 
-              las tecnologías más actuales del mercado.
-            </p>
-            <p>
-              Mi enfoque se centra en escribir código limpio, mantenible y escalable, 
-              siempre buscando las mejores prácticas de desarrollo. Disfruto aprendiendo 
-              nuevas tecnologías y enfrentando desafíos técnicos.
-            </p>
+            <h3>{t.about.intro} <span className="gradient-text">{t.about.role}</span> {t.about.passionate}</h3>
+            <p>{t.about.description1}</p>
+            <p>{t.about.description2}</p>
             
             <div className="about-stats">
               <div className="stat">
                 <span className="stat-number">2+</span>
-                <span className="stat-label">Años de experiencia</span>
+                <span className="stat-label">{t.about.yearsExp}</span>
               </div>
               <div className="stat">
                 <span className="stat-number">10+</span>
-                <span className="stat-label">Proyectos completados</span>
+                <span className="stat-label">{t.about.projectsCompleted}</span>
               </div>
               <div className="stat">
                 <span className="stat-number">5+</span>
-                <span className="stat-label">Tecnologías dominadas</span>
+                <span className="stat-label">{t.about.techDominated}</span>
               </div>
             </div>
           </motion.div>

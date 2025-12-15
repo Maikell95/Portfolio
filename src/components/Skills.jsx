@@ -3,9 +3,13 @@ import {
   SiJavascript, SiReact, SiHtml5, SiCss3, SiNodedotjs, 
   SiGit, SiTailwindcss, SiVite, SiMongodb, SiPython 
 } from 'react-icons/si'
+import { useLanguage } from '../context/LanguageContext'
 import './Skills.css'
 
 const Skills = () => {
+  const { t } = useLanguage()
+
+  // Edita esta lista con tus skills reales
   const skills = [
     { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E', level: 90 },
     { name: 'React', icon: <SiReact />, color: '#61DAFB', level: 85 },
@@ -28,7 +32,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Skills & Tecnologías
+          {t.skills.title}
         </motion.h2>
         <motion.p 
           className="section-subtitle"
@@ -37,7 +41,7 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
-          Herramientas y tecnologías que utilizo para dar vida a los proyectos
+          {t.skills.subtitle}
         </motion.p>
 
         <div className="skills-grid">

@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi'
+import { useLanguage } from '../context/LanguageContext'
 import './Hero.css'
 
 const Hero = () => {
-  const roles = ['Desarrollador Web', 'Frontend Developer', 'React Developer']
+  const { t } = useLanguage()
 
   return (
     <section id="hero" className="hero">
@@ -20,7 +21,7 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            👋 ¡Hola! Soy
+            {t.hero.greeting}
           </motion.span>
 
           <motion.h1 
@@ -45,7 +46,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              Desarrollador Web
+              {t.hero.role}
             </motion.span>
             <span className="hero-role-prefix">{'/>'}</span>
           </motion.div>
@@ -56,8 +57,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
           >
-            Apasionado por crear experiencias web únicas y funcionales.
-            Transformo ideas en código limpio y diseños atractivos.
+            {t.hero.description}
           </motion.p>
 
           <motion.div 
@@ -67,10 +67,10 @@ const Hero = () => {
             transition={{ delay: 0.8 }}
           >
             <a href="#projects" className="btn btn-primary">
-              Ver Proyectos
+              {t.hero.viewProjects}
             </a>
             <a href="#contact" className="btn btn-secondary">
-              <FiMail /> Contactar
+              <FiMail /> {t.hero.contact}
             </a>
           </motion.div>
 
@@ -80,7 +80,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
           >
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://github.com/Maikell95" target="_blank" rel="noopener noreferrer" className="social-link">
               <FiGithub />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">

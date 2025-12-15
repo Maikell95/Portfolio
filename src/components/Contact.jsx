@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiMail, FiMapPin, FiSend, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi'
+import { useLanguage } from '../context/LanguageContext'
 import './Contact.css'
 
 const Contact = () => {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,7 +22,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Aquí puedes integrar con EmailJS, Formspree, etc.
     setStatus('sending')
     setTimeout(() => {
       setStatus('success')
@@ -31,20 +32,20 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <FiMail />,
-      label: 'Email',
+      label: t.contact.email,
       value: 'tu@email.com',
       href: 'mailto:tu@email.com'
     },
     {
       icon: <FiMapPin />,
-      label: 'Ubicación',
+      label: t.contact.location,
       value: 'Tu Ciudad, País',
       href: '#'
     }
   ]
 
   const socials = [
-    { icon: <FiGithub />, href: 'https://github.com', label: 'GitHub' },
+    { icon: <FiGithub />, href: 'https://github.com/Maikell95', label: 'GitHub' },
     { icon: <FiLinkedin />, href: 'https://linkedin.com', label: 'LinkedIn' },
     { icon: <FiTwitter />, href: 'https://twitter.com', label: 'Twitter' }
   ]
@@ -58,7 +59,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Contacto
+          {t.contact.title}
         </motion.h2>
         <motion.p 
           className="section-subtitle"
@@ -67,7 +68,7 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
-          ¿Tienes un proyecto en mente? ¡Hablemos!
+          {t.contact.subtitle}
         </motion.p>
 
         <div className="contact-content">
@@ -78,11 +79,8 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h3>Conectemos</h3>
-            <p>
-              Estoy abierto a nuevas oportunidades y colaboraciones. 
-              No dudes en contactarme si tienes alguna pregunta o propuesta.
-            </p>
+            <h3>{t.contact.connect}</h3>
+            <p>{t.contact.description}</p>
 
             <div className="contact-details">
               {contactInfo.map((item) => (
@@ -122,39 +120,39 @@ const Contact = () => {
             transition={{ delay: 0.3 }}
           >
             <div className="form-group">
-              <label htmlFor="name">Nombre</label>
+              <label htmlFor="name">{t.contact.name}</label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Tu nombre"
+                placeholder={t.contact.namePlaceholder}
                 required
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{t.contact.email}</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="tu@email.com"
+                placeholder={t.contact.emailPlaceholder}
                 required
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Mensaje</label>
+              <label htmlFor="message">{t.contact.message}</label>
               <textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Cuéntame sobre tu proyecto..."
+                placeholder={t.contact.messagePlaceholder}
                 rows="5"
                 required
               />
@@ -168,10 +166,10 @@ const Contact = () => {
               disabled={status === 'sending'}
             >
               {status === 'sending' ? (
-                'Enviando...'
+                t.contact.sending
               ) : (
                 <>
-                  <FiSend /> Enviar mensaje
+                  <FiSend /> {t.contact.send}
                 </>
               )}
             </motion.button>
@@ -182,7 +180,7 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                ✅ ¡Mensaje enviado correctamente!
+                {t.contact.success}
               </motion.p>
             )}
           </motion.form>

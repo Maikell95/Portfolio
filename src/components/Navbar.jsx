@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi'
+import { FiSun, FiMoon, FiMenu, FiX, FiGlobe } from 'react-icons/fi'
+import { useLanguage } from '../context/LanguageContext'
 import './Navbar.css'
 
 const Navbar = ({ darkMode, toggleTheme }) => {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { language, toggleLanguage, t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +18,12 @@ const Navbar = ({ darkMode, toggleTheme }) => {
   }, [])
 
   const navItems = [
-    { name: 'Inicio', href: '#hero' },
-    { name: 'Sobre mí', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Proyectos', href: '#projects' },
-    { name: 'Contacto', href: '#contact' },
+    { name: t.nav.home, href: '#hero' },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.skills, href: '#skills' },
+    { name: t.nav.experience, href: '#experience' },
+    { name: t.nav.projects, href: '#projects' },
+    { name: t.nav.contact, href: '#contact' },
   ]
 
   return (
@@ -59,6 +62,17 @@ const Navbar = ({ darkMode, toggleTheme }) => {
         </div>
 
         <div className="nav-actions">
+          <motion.button 
+            className="lang-toggle"
+            onClick={toggleLanguage}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+          >
+            <FiGlobe />
+            <span>{language.toUpperCase()}</span>
+          </motion.button>
+
           <motion.button 
             className="theme-toggle"
             onClick={toggleTheme}

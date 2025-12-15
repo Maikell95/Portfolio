@@ -1,19 +1,21 @@
 import { motion } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiTwitter, FiHeart } from 'react-icons/fi'
+import { useLanguage } from '../context/LanguageContext'
 import './Footer.css'
 
 const Footer = () => {
+  const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   const links = [
-    { name: 'Inicio', href: '#hero' },
-    { name: 'Sobre mí', href: '#about' },
-    { name: 'Proyectos', href: '#projects' },
-    { name: 'Contacto', href: '#contact' }
+    { name: t.nav.home, href: '#hero' },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.projects, href: '#projects' },
+    { name: t.nav.contact, href: '#contact' }
   ]
 
   const socials = [
-    { icon: <FiGithub />, href: 'https://github.com' },
+    { icon: <FiGithub />, href: 'https://github.com/Maikell95' },
     { icon: <FiLinkedin />, href: 'https://linkedin.com' },
     { icon: <FiTwitter />, href: 'https://twitter.com' }
   ]
@@ -26,11 +28,11 @@ const Footer = () => {
             <a href="#hero" className="footer-logo">
               <span>&lt;</span>Portfolio<span>/&gt;</span>
             </a>
-            <p>Desarrollando experiencias digitales únicas.</p>
+            <p>{t.footer.description}</p>
           </div>
 
           <div className="footer-links">
-            <h4>Enlaces</h4>
+            <h4>{t.footer.links}</h4>
             <nav>
               {links.map(link => (
                 <a key={link.name} href={link.href}>{link.name}</a>
@@ -39,7 +41,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-social">
-            <h4>Sígueme</h4>
+            <h4>{t.footer.follow}</h4>
             <div className="social-links">
               {socials.map((social, index) => (
                 <motion.a
@@ -58,7 +60,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>
-            © {currentYear} Tu Nombre. Hecho con <FiHeart className="heart-icon" /> 
+            © {currentYear} Tu Nombre. {t.footer.madeWith} <FiHeart className="heart-icon" /> 
           </p>
         </div>
       </div>
