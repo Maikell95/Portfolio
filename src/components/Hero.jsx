@@ -30,7 +30,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            Tu Nombre
+            Maikel Ferrer
           </motion.h1>
 
           <motion.div
@@ -111,18 +111,23 @@ const Hero = () => {
           <div className="hero-image-wrapper">
             <div className="hero-image-glow"></div>
             <div className="hero-image-container">
-              <div className="hero-avatar">
-                <span>👨‍💻</span>
-              </div>
+              <img 
+                src="/Portfolio/5046582651954858759.jpg" 
+                alt="Maikel Ferrer" 
+                className="hero-photo"
+              />
             </div>
             <div className="floating-badge badge-1">
-              <span>⚛️</span> React
+              <span>🐧</span> Linux
             </div>
             <div className="floating-badge badge-2">
-              <span>🚀</span> Vite
+              <span>⚛️</span> React
             </div>
             <div className="floating-badge badge-3">
-              <span>✨</span> CSS3
+              <span>🔗</span> n8n
+            </div>
+            <div className="floating-badge badge-4">
+              <span>🐍</span> Django
             </div>
           </div>
         </motion.div>

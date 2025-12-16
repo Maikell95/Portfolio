@@ -4,31 +4,38 @@ import {
   SiReact,
   SiHtml5,
   SiCss3,
-  SiNodedotjs,
+  SiPython,
+  SiDjango,
   SiGit,
   SiTailwindcss,
   SiVite,
-  SiMongodb,
-  SiPython,
+  SiPostgresql,
+  SiCplusplus,
+  SiDotnet,
+  SiLinux,
 } from "react-icons/si";
+import { FiSettings } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 import "./Skills.css";
 
 const Skills = () => {
   const { t } = useLanguage();
 
-  // Edita esta lista con tus skills reales
   const skills = [
-    { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E", level: 90 },
-    { name: "React", icon: <SiReact />, color: "#61DAFB", level: 85 },
-    { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26", level: 95 },
-    { name: "CSS3", icon: <SiCss3 />, color: "#1572B6", level: 90 },
-    { name: "Node.js", icon: <SiNodedotjs />, color: "#339933", level: 75 },
-    { name: "Git", icon: <SiGit />, color: "#F05032", level: 80 },
-    { name: "Tailwind", icon: <SiTailwindcss />, color: "#06B6D4", level: 85 },
-    { name: "Vite", icon: <SiVite />, color: "#646CFF", level: 80 },
-    { name: "MongoDB", icon: <SiMongodb />, color: "#47A248", level: 70 },
-    { name: "Python", icon: <SiPython />, color: "#3776AB", level: 65 },
+    { name: "Python", icon: <SiPython />, color: "#3776AB", level: 55 },
+    { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E", level: 50 },
+    { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26", level: 60 },
+    { name: "CSS3", icon: <SiCss3 />, color: "#1572B6", level: 55 },
+    { name: "React", icon: <SiReact />, color: "#61DAFB", level: 45 },
+    { name: "Django", icon: <SiDjango />, color: "#092E20", level: 45 },
+    { name: "PostgreSQL", icon: <SiPostgresql />, color: "#4169E1", level: 50 },
+    { name: "C++", icon: <SiCplusplus />, color: "#00599C", level: 45 },
+    { name: "C#", icon: <SiDotnet />, color: "#512BD4", level: 40 },
+    { name: "Tailwind", icon: <SiTailwindcss />, color: "#06B6D4", level: 50 },
+    { name: "n8n", icon: <FiSettings />, color: "#EA4B71", level: 65 },
+    { name: "Linux", icon: <SiLinux />, color: "#FCC624", level: 70 },
+    { name: "Git", icon: <SiGit />, color: "#F05032", level: 45 },
+    { name: "Vite", icon: <SiVite />, color: "#646CFF", level: 50 },
   ];
 
   return (

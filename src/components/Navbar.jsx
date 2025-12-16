@@ -36,7 +36,7 @@ const Navbar = ({ darkMode, toggleTheme }) => {
       <div className="navbar-container">
         <motion.a href="#hero" className="logo" whileHover={{ scale: 1.05 }}>
           <span className="logo-bracket">&lt;</span>
-          Portfolio
+          MF.dev
           <span className="logo-bracket">/&gt;</span>
         </motion.a>
 

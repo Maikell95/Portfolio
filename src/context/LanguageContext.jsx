@@ -15,10 +15,10 @@ export const translations = {
     },
     // Hero
     hero: {
-      greeting: "👋 ¡Hola! Soy",
-      role: "Desarrollador Web",
+      greeting: "Soy",
+      role: "Desarrollador Web y de Automatizaciones",
       description:
-        "Apasionado por crear experiencias web únicas y funcionales. Transformo ideas en código limpio y diseños atractivos.",
+        "Estudiante de Ing. en Ciberseguridad apasionado por el desarrollo web y las automatizaciones. Transformo ideas en soluciones funcionales con código limpio.",
       viewProjects: "Ver Proyectos",
       contact: "Contactar",
     },
@@ -26,29 +26,29 @@ export const translations = {
     about: {
       title: "Sobre Mí",
       subtitle: "Conoce un poco más sobre mi perfil profesional",
-      intro: "¡Hola! Soy un",
-      role: "Desarrollador Web",
-      passionate: "apasionado",
+      intro: "¡Hola! Soy",
+      role: "Maikel Ferrer",
+      passionate: "",
       description1:
-        "Con experiencia en el desarrollo de aplicaciones web modernas y funcionales. Me especializo en crear experiencias de usuario excepcionales utilizando las tecnologías más actuales del mercado.",
+        "Estudiante de Ingeniería en Ciberseguridad desde La Habana, Cuba. Me apasiona el desarrollo web fullstack, las automatizaciones y el mundo de la inteligencia artificial. Creo firmemente en aprender a fondo cada tecnología antes de usarla, entendiendo su funcionamiento interno en lugar de depender de soluciones rápidas.",
       description2:
-        "Mi enfoque se centra en escribir código limpio, mantenible y escalable, siempre buscando las mejores prácticas de desarrollo. Disfruto aprendiendo nuevas tecnologías y enfrentando desafíos técnicos.",
-      yearsExp: "Años de experiencia",
-      projectsCompleted: "Proyectos completados",
-      techDominated: "Tecnologías dominadas",
+        "Actualmente me especializo en crear flujos de automatización con n8n, desarrollo aplicaciones web con React y Django, y administro sistemas Linux. Mi objetivo es combinar mis conocimientos en ciberseguridad con el desarrollo para crear soluciones seguras y eficientes.",
+      yearsExp: "Año aprendiendo",
+      projectsCompleted: "Proyectos realizados",
+      techDominated: "Tecnologías aprendidas",
       // Services
       webDesign: "Diseño Web",
       webDesignDesc:
-        "Interfaces modernas, intuitivas y atractivas que cautivan a los usuarios.",
-      frontend: "Desarrollo Frontend",
+        "Interfaces modernas e intuitivas con React y Tailwind CSS.",
+      frontend: "Automatización",
       frontendDesc:
-        "Código limpio y optimizado con las últimas tecnologías del mercado.",
-      backend: "Backend",
+        "Flujos de trabajo inteligentes con n8n para optimizar procesos.",
+      backend: "Backend & Bases de Datos",
       backendDesc:
-        "APIs robustas y bases de datos escalables para tu aplicación.",
-      responsive: "Responsive",
+        "APIs con Django REST Framework y bases de datos PostgreSQL.",
+      responsive: "Linux & Seguridad",
       responsiveDesc:
-        "Diseños que se adaptan perfectamente a cualquier dispositivo.",
+        "Administración de sistemas y enfoque en ciberseguridad.",
     },
     // Skills
     skills: {
@@ -67,8 +67,9 @@ export const translations = {
       title: "Mis Proyectos",
       subtitle: "Una selección de mis trabajos más recientes",
       all: "Todos",
-      frontend: "Frontend",
-      fullstack: "Full Stack",
+      automation: "Automatización",
+      web: "Desarrollo Web",
+      security: "Ciberseguridad",
     },
     // Contact
     contact: {
@@ -87,13 +88,14 @@ export const translations = {
       send: "Enviar mensaje",
       sending: "Enviando...",
       success: "✅ ¡Mensaje enviado correctamente!",
+      error: "❌ Error al enviar. Intenta de nuevo.",
     },
     // Footer
     footer: {
-      description: "Desarrollando experiencias digitales únicas.",
+      description: "Automatizando procesos y creando soluciones web desde Cuba.",
       links: "Enlaces",
       follow: "Sígueme",
-      madeWith: "Hecho con",
+      createdWith: "Creado con",
     },
   },
   en: {
@@ -108,10 +110,10 @@ export const translations = {
     },
     // Hero
     hero: {
-      greeting: "👋 Hi! I'm",
-      role: "Web Developer",
+      greeting: "I'm",
+      role: "Web & Automation Developer",
       description:
-        "Passionate about creating unique and functional web experiences. I transform ideas into clean code and attractive designs.",
+        "Cybersecurity Engineering student passionate about web development and automation. I transform ideas into functional solutions with clean code.",
       viewProjects: "View Projects",
       contact: "Contact Me",
     },
@@ -119,27 +121,29 @@ export const translations = {
     about: {
       title: "About Me",
       subtitle: "Learn a little more about my professional profile",
-      intro: "Hi! I'm a",
-      role: "Web Developer",
-      passionate: "passionate",
+      intro: "Hi! I'm",
+      role: "Maikel Ferrer",
+      passionate: "",
       description1:
-        "With experience in developing modern and functional web applications. I specialize in creating exceptional user experiences using the most current technologies in the market.",
+        "Cybersecurity Engineering student from Havana, Cuba. I'm passionate about fullstack web development, automation, and the world of artificial intelligence. I firmly believe in learning each technology in depth before using it, understanding its inner workings rather than relying on quick solutions.",
       description2:
-        "My approach focuses on writing clean, maintainable and scalable code, always seeking best development practices. I enjoy learning new technologies and facing technical challenges.",
-      yearsExp: "Years of experience",
+        "Currently I specialize in creating automation workflows with n8n, developing web applications with React and Django, and managing Linux systems. My goal is to combine my cybersecurity knowledge with development to create secure and efficient solutions.",
+      yearsExp: "Year learning",
       projectsCompleted: "Projects completed",
-      techDominated: "Technologies mastered",
+      techDominated: "Technologies learned",
       // Services
       webDesign: "Web Design",
       webDesignDesc:
-        "Modern, intuitive and attractive interfaces that captivate users.",
-      frontend: "Frontend Development",
+        "Modern and intuitive interfaces with React and Tailwind CSS.",
+      frontend: "Automation",
       frontendDesc:
-        "Clean and optimized code with the latest market technologies.",
-      backend: "Backend",
-      backendDesc: "Robust APIs and scalable databases for your application.",
-      responsive: "Responsive",
-      responsiveDesc: "Designs that adapt perfectly to any device.",
+        "Smart workflows with n8n to optimize processes.",
+      backend: "Backend & Databases",
+      backendDesc:
+        "APIs with Django REST Framework and PostgreSQL databases.",
+      responsive: "Linux & Security",
+      responsiveDesc:
+        "System administration and cybersecurity focus.",
     },
     // Skills
     skills: {
@@ -157,8 +161,9 @@ export const translations = {
       title: "My Projects",
       subtitle: "A selection of my most recent works",
       all: "All",
-      frontend: "Frontend",
-      fullstack: "Full Stack",
+      automation: "Automation",
+      web: "Web Development",
+      security: "Cybersecurity",
     },
     // Contact
     contact: {
@@ -177,13 +182,14 @@ export const translations = {
       send: "Send message",
       sending: "Sending...",
       success: "✅ Message sent successfully!",
+      error: "❌ Failed to send. Please try again.",
     },
     // Footer
     footer: {
-      description: "Developing unique digital experiences.",
+      description: "Automating processes and building web solutions from Cuba.",
       links: "Links",
       follow: "Follow me",
-      madeWith: "Made with",
+      createdWith: "Built with",
     },
   },
 };

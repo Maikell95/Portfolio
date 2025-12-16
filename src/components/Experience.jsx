@@ -6,86 +6,39 @@ import "./Experience.css";
 const Experience = () => {
   const { t, language } = useLanguage();
 
-  // Edita esta lista con tu experiencia real
+  /*
+   * ═══════════════════════════════════════════════════════════════
+   * PLANTILLA DE EXPERIENCIA - Copia este bloque para agregar más
+   * ═══════════════════════════════════════════════════════════════
+   * {
+   *   id: 1,  // Número único para cada experiencia
+   *   title: {
+   *     es: "Título del puesto en español",
+   *     en: "Job title in English",
+   *   },
+   *   company: "Nombre de la empresa",
+   *   location: "Ciudad, País",
+   *   startDate: "2024",      // Año de inicio
+   *   endDate: null,          // null = Presente, o "2025" para fecha específica
+   *   description: {
+   *     es: [
+   *       "Responsabilidad o logro 1",
+   *       "Responsabilidad o logro 2",
+   *       "Responsabilidad o logro 3",
+   *     ],
+   *     en: [
+   *       "Responsibility or achievement 1",
+   *       "Responsibility or achievement 2",
+   *       "Responsibility or achievement 3",
+   *     ],
+   *   },
+   *   technologies: ["Tech1", "Tech2", "Tech3"],
+   * },
+   * ═══════════════════════════════════════════════════════════════
+   */
+
   const experiences = [
-    {
-      id: 1,
-      title: {
-        es: "Desarrollador Frontend",
-        en: "Frontend Developer",
-      },
-      company: "Empresa Ejemplo",
-      location: "Remoto",
-      startDate: "2023",
-      endDate: null, // null = Presente
-      description: {
-        es: [
-          "Desarrollo de interfaces de usuario con React y TypeScript",
-          "Implementación de diseños responsivos y accesibles",
-          "Colaboración con el equipo de backend para integración de APIs",
-          "Optimización del rendimiento de aplicaciones web",
-        ],
-        en: [
-          "User interface development with React and TypeScript",
-          "Implementation of responsive and accessible designs",
-          "Collaboration with backend team for API integration",
-          "Web application performance optimization",
-        ],
-      },
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Git"],
-    },
-    {
-      id: 2,
-      title: {
-        es: "Desarrollador Web Junior",
-        en: "Junior Web Developer",
-      },
-      company: "Startup Tech",
-      location: "Ciudad, País",
-      startDate: "2022",
-      endDate: "2023",
-      description: {
-        es: [
-          "Desarrollo de sitios web con HTML, CSS y JavaScript",
-          "Mantenimiento y actualización de proyectos existentes",
-          "Implementación de nuevas funcionalidades según requerimientos",
-          "Participación en reuniones de planificación y revisión de código",
-        ],
-        en: [
-          "Website development with HTML, CSS and JavaScript",
-          "Maintenance and update of existing projects",
-          "Implementation of new features according to requirements",
-          "Participation in planning meetings and code reviews",
-        ],
-      },
-      technologies: ["HTML", "CSS", "JavaScript", "WordPress"],
-    },
-    {
-      id: 3,
-      title: {
-        es: "Practicante de Desarrollo",
-        en: "Development Intern",
-      },
-      company: "Tech Company",
-      location: "Ciudad, País",
-      startDate: "2021",
-      endDate: "2022",
-      description: {
-        es: [
-          "Aprendizaje de tecnologías web fundamentales",
-          "Apoyo en tareas de desarrollo y testing",
-          "Documentación de procesos y código",
-          "Trabajo en equipo bajo metodología Agile",
-        ],
-        en: [
-          "Learning fundamental web technologies",
-          "Support in development and testing tasks",
-          "Documentation of processes and code",
-          "Teamwork under Agile methodology",
-        ],
-      },
-      technologies: ["HTML", "CSS", "JavaScript", "Git"],
-    },
+    // Agrega tus experiencias aquí usando la plantilla de arriba
   ];
 
   return (

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiCode, FiLayout, FiDatabase, FiSmartphone } from "react-icons/fi";
+import { FiCode, FiLayout, FiDatabase, FiMonitor } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 import "./About.css";
 
@@ -23,7 +23,7 @@ const About = () => {
       description: t.about.backendDesc,
     },
     {
-      icon: <FiSmartphone />,
+      icon: <FiMonitor />,
       title: t.about.responsive,
       description: t.about.responsiveDesc,
     },
@@ -68,15 +68,15 @@ const About = () => {
 
             <div className="about-stats">
               <div className="stat">
-                <span className="stat-number">2+</span>
+                <span className="stat-number">1+</span>
                 <span className="stat-label">{t.about.yearsExp}</span>
               </div>
               <div className="stat">
-                <span className="stat-number">10+</span>
+                <span className="stat-number">5+</span>
                 <span className="stat-label">{t.about.projectsCompleted}</span>
               </div>
               <div className="stat">
-                <span className="stat-number">5+</span>
+                <span className="stat-number">10+</span>
                 <span className="stat-label">{t.about.techDominated}</span>
               </div>
             </div>

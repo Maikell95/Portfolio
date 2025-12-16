@@ -8,116 +8,39 @@ const Projects = () => {
   const [filter, setFilter] = useState("all");
   const { t, language } = useLanguage();
 
-  // Edita esta lista con tus proyectos reales
+  /*
+   * ═══════════════════════════════════════════════════════════════
+   * PLANTILLA DE PROYECTO - Copia este bloque para agregar más
+   * ═══════════════════════════════════════════════════════════════
+   * {
+   *   id: 1,  // Número único para cada proyecto
+   *   title: {
+   *     es: "Nombre del proyecto en español",
+   *     en: "Project name in English",
+   *   },
+   *   description: {
+   *     es: "Descripción breve del proyecto en español.",
+   *     en: "Brief project description in English.",
+   *   },
+   *   image: "🚀",  // Emoji representativo o ruta a imagen
+   *   tags: ["React", "Node.js", "PostgreSQL"],  // Tecnologías usadas
+   *   category: "web",  // "automation", "web" o "security"
+   *   github: "https://github.com/Maikell95/proyecto",  // URL del repo
+   *   demo: "https://tu-demo.com",  // URL del demo (opcional)
+   *   featured: true,  // true = se muestra más grande
+   * },
+   * ═══════════════════════════════════════════════════════════════
+   */
+
   const projects = [
-    {
-      id: 1,
-      title: {
-        es: "E-Commerce App",
-        en: "E-Commerce App",
-      },
-      description: {
-        es: "Tienda online completa con carrito de compras, autenticación y pasarela de pagos.",
-        en: "Complete online store with shopping cart, authentication and payment gateway.",
-      },
-      image: "🛒",
-      tags: ["React", "Node.js", "MongoDB"],
-      category: "fullstack",
-      github: "https://github.com/Maikell95",
-      demo: "https://demo.com",
-      featured: true,
-    },
-    {
-      id: 2,
-      title: {
-        es: "Dashboard Analytics",
-        en: "Analytics Dashboard",
-      },
-      description: {
-        es: "Panel de control interactivo con gráficos dinámicos y reportes en tiempo real.",
-        en: "Interactive control panel with dynamic charts and real-time reports.",
-      },
-      image: "📊",
-      tags: ["React", "Chart.js", "API"],
-      category: "frontend",
-      github: "https://github.com/Maikell95",
-      demo: "https://demo.com",
-      featured: true,
-    },
-    {
-      id: 3,
-      title: {
-        es: "Task Manager",
-        en: "Task Manager",
-      },
-      description: {
-        es: "Aplicación de gestión de tareas con drag & drop y sincronización en la nube.",
-        en: "Task management app with drag & drop and cloud sync.",
-      },
-      image: "✅",
-      tags: ["React", "Firebase", "Tailwind"],
-      category: "fullstack",
-      github: "https://github.com/Maikell95",
-      demo: "https://demo.com",
-      featured: true,
-    },
-    {
-      id: 4,
-      title: {
-        es: "Weather App",
-        en: "Weather App",
-      },
-      description: {
-        es: "Aplicación del clima con geolocalización y pronóstico de 7 días.",
-        en: "Weather app with geolocation and 7-day forecast.",
-      },
-      image: "🌤️",
-      tags: ["JavaScript", "API", "CSS3"],
-      category: "frontend",
-      github: "https://github.com/Maikell95",
-      demo: "https://demo.com",
-      featured: false,
-    },
-    {
-      id: 5,
-      title: {
-        es: "Blog Personal",
-        en: "Personal Blog",
-      },
-      description: {
-        es: "Blog con sistema de comentarios, categorías y panel de administración.",
-        en: "Blog with comment system, categories and admin panel.",
-      },
-      image: "📝",
-      tags: ["Next.js", "Markdown", "Vercel"],
-      category: "fullstack",
-      github: "https://github.com/Maikell95",
-      demo: "https://demo.com",
-      featured: false,
-    },
-    {
-      id: 6,
-      title: {
-        es: "Landing Page",
-        en: "Landing Page",
-      },
-      description: {
-        es: "Landing page moderna y animada para producto SaaS.",
-        en: "Modern and animated landing page for SaaS product.",
-      },
-      image: "🚀",
-      tags: ["HTML", "CSS", "JavaScript"],
-      category: "frontend",
-      github: "https://github.com/Maikell95",
-      demo: "https://demo.com",
-      featured: false,
-    },
+    // Agrega tus proyectos aquí usando la plantilla de arriba
   ];
 
   const filters = [
     { key: "all", label: t.projects.all },
-    { key: "frontend", label: t.projects.frontend },
-    { key: "fullstack", label: t.projects.fullstack },
+    { key: "automation", label: t.projects.automation },
+    { key: "web", label: t.projects.web },
+    { key: "security", label: t.projects.security },
   ];
 
   const filteredProjects =

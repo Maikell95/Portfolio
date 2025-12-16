@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   FiMail,
   FiMapPin,
@@ -13,6 +14,7 @@ import "./Contact.css";
 
 const Contact = () => {
   const { t } = useLanguage();
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,23 +32,40 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("sending");
-    setTimeout(() => {
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-    }, 1500);
+
+    // EmailJS - Credenciales configuradas
+    emailjs
+      .sendForm(
+        "service_2fs9yrk",
+        "template_pvzquo3",
+        formRef.current,
+        "Tuo5eqSdqpZaoEry6",
+      )
+      .then(
+        () => {
+          setStatus("success");
+          setFormData({ name: "", email: "", message: "" });
+          setTimeout(() => setStatus(""), 5000);
+        },
+        (error) => {
+          console.error("Error:", error);
+          setStatus("error");
+          setTimeout(() => setStatus(""), 5000);
+        },
+      );
   };
 
   const contactInfo = [
     {
       icon: <FiMail />,
       label: t.contact.email,
-      value: "tu@email.com",
-      href: "mailto:tu@email.com",
+      value: "maikeudis@gmail.com",
+      href: "mailto:maikeudis@gmail.com",
     },
     {
       icon: <FiMapPin />,
       label: t.contact.location,
-      value: "Tu Ciudad, País",
+      value: "La Habana, Cuba",
       href: "#",
     },
   ];
@@ -123,6 +142,7 @@ const Contact = () => {
           </motion.div>
 
           <motion.form
+            ref={formRef}
             className="contact-form card"
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 50 }}
@@ -192,6 +212,16 @@ const Contact = () => {
                 animate={{ opacity: 1, y: 0 }}
               >
                 {t.contact.success}
+              </motion.p>
+            )}
+
+            {status === "error" && (
+              <motion.p
+                className="error-message"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {t.contact.error || "Error al enviar. Intenta de nuevo."}
               </motion.p>
             )}
           </motion.form>

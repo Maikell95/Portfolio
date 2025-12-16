@@ -4,7 +4,7 @@ import { useLanguage } from "../context/LanguageContext";
 import "./Footer.css";
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const links = [
@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-brand">
             <a href="#hero" className="footer-logo">
-              <span>&lt;</span>Portfolio<span>/&gt;</span>
+              <span>&lt;</span>{language === "es" ? "Portafolio" : "Portfolio"}<span>/&gt;</span>
             </a>
             <p>{t.footer.description}</p>
           </div>
@@ -62,8 +62,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>
-            © {currentYear} Tu Nombre. {t.footer.madeWith}{" "}
-            <FiHeart className="heart-icon" />
+            © {currentYear} Maikel Ferrer. {t.footer.createdWith} React, Vite & Framer Motion
           </p>
         </div>
       </div>

@@ -61,7 +61,7 @@ const ParticlesBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - distance / 150)})`;
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.25 * (1 - distance / 150)})`;
             ctx.stroke();
           }
         });
