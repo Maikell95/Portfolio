@@ -38,6 +38,32 @@ const Experience = () => {
    */
 
   const experiences = [
+    {
+      id: 1,
+      title: {
+        es: "Desarrollador Web Freelancer",
+        en: "Freelance Web Developer",
+      },
+      company: "Freelance",
+      location: "La Habana, Cuba",
+      startDate: "2024",
+      endDate: null,
+      description: {
+        es: [
+          "Desarrollo de sitios web y aplicaciones a medida para clientes diversos",
+          "Creación de flujos de automatización con n8n para optimizar procesos de negocio",
+          "Diseño e implementación de interfaces modernas y responsivas con React y Tailwind CSS",
+          "Desarrollo de APIs REST y gestión de bases de datos PostgreSQL",
+        ],
+        en: [
+          "Development of custom websites and applications for diverse clients",
+          "Creation of automation workflows with n8n to optimize business processes",
+          "Design and implementation of modern, responsive interfaces with React and Tailwind CSS",
+          "REST API development and PostgreSQL database management",
+        ],
+      },
+      technologies: ["React", "Node.js", "PostgreSQL", "n8n", "Tailwind CSS"],
+    },
     // Agrega tus experiencias aquí usando la plantilla de arriba
   ];
 

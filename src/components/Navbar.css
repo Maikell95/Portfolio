@@ -52,22 +52,35 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  transition: color 0.3s ease;
   position: relative;
+  padding: 0.5rem 0;
 }
 
 .nav-link::after {
   content: "";
   position: absolute;
-  bottom: -4px;
+  bottom: 0;
   left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent-gradient);
-  transition: width 0.3s ease;
+  width: 0%;
+  height: 3px;
+  background: #6366f1;
+  border-radius: 2px;
+  transition: width 0.35s ease-out;
+}
+
+.nav-link:hover {
+  color: var(--accent-primary);
 }
 
 .nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--accent-primary);
+}
+
+.nav-link.active::after {
   width: 100%;
 }
 
@@ -111,11 +124,18 @@
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .theme-toggle:hover {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
+}
+
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu-toggle {
@@ -132,44 +152,77 @@
   cursor: pointer;
 }
 
+/* Menú desktop - oculto en móvil */
+.nav-menu-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Overlay */
+.nav-overlay {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .nav-menu {
-    position: absolute;
-    top: 100%;
+  /* Ocultar menú desktop en móvil */
+  .nav-menu-desktop {
+    display: none;
+  }
+
+  /* Overlay para cerrar menú */
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 1rem;
+    right: 1rem;
     background: var(--bg-card);
     flex-direction: column;
     gap: 0;
     padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transform: translateY(-10px);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    overflow: hidden;
   }
 
-  .nav-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  [data-theme="light"] .nav-overlay {
+    background: rgba(255, 255, 255, 0.5);
   }
 
   .nav-link {
-    font-size: 0.95rem;
-    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
     width: 100%;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+  }
+
+  .nav-link::after {
+    display: none;
   }
 
   .nav-link:last-child {
     border-bottom: none;
   }
 
-  .nav-link:hover {
+  .nav-link.active {
     background: var(--bg-secondary);
+    border-left: 3px solid var(--accent-primary);
   }
 
   .menu-toggle {
@@ -179,5 +232,11 @@
 
   .navbar-container {
     position: relative;
+  }
+
+  /* Transición de tema más suave en móvil */
+  .theme-toggle,
+  .lang-toggle {
+    transition: all 0.4s ease;
   }
 }

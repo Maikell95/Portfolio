@@ -10,6 +10,7 @@ export const translations = {
       about: "Sobre mí",
       skills: "Skills",
       experience: "Experiencia",
+      certificates: "Certificados",
       projects: "Proyectos",
       contact: "Contacto",
     },
@@ -18,7 +19,7 @@ export const translations = {
       greeting: "Soy",
       role: "Desarrollador Web y de Automatizaciones",
       description:
-        "Estudiante de Ing. en Ciberseguridad apasionado por el desarrollo web y las automatizaciones. Transformo ideas en soluciones funcionales con código limpio.",
+        "Desarrollador fullstack y especialista en automatizaciones con enfoque en ciberseguridad. Transformo ideas en soluciones funcionales, seguras y escalables.",
       viewProjects: "Ver Proyectos",
       contact: "Contactar",
     },
@@ -30,31 +31,36 @@ export const translations = {
       role: "Maikel Ferrer",
       passionate: "",
       description1:
-        "Estudiante de Ingeniería en Ciberseguridad desde La Habana, Cuba. Me apasiona el desarrollo web fullstack, las automatizaciones y el mundo de la inteligencia artificial. Creo firmemente en aprender a fondo cada tecnología antes de usarla, entendiendo su funcionamiento interno en lugar de depender de soluciones rápidas.",
+        "Desarrollador fullstack e ingeniero en ciberseguridad desde La Habana, Cuba. Me apasiona el desarrollo web, las automatizaciones y la inteligencia artificial. Creo firmemente en dominar cada tecnología a fondo, comprendiendo su funcionamiento interno en lugar de depender de soluciones superficiales.",
       description2:
-        "Actualmente me especializo en crear flujos de automatización con n8n, desarrollo aplicaciones web con React y Django, y administro sistemas Linux. Mi objetivo es combinar mis conocimientos en ciberseguridad con el desarrollo para crear soluciones seguras y eficientes.",
-      yearsExp: "Año aprendiendo",
-      projectsCompleted: "Proyectos realizados",
-      techDominated: "Tecnologías aprendidas",
+        "Me especializo en crear flujos de automatización con n8n, desarrollar aplicaciones web modernas con React y Node.js, y administrar sistemas Linux. Mi objetivo es combinar mis conocimientos en ciberseguridad con el desarrollo para crear soluciones seguras y eficientes.",
+      yearsExp: "Año de experiencia",
+      projectsCompleted: "Proyectos completados",
+      techDominated: "Tecnologías dominadas",
       // Services
       webDesign: "Diseño Web",
       webDesignDesc:
-        "Interfaces modernas e intuitivas con React y Tailwind CSS.",
+        "Interfaces modernas con React, Angular, Next.js y Tailwind CSS.",
       frontend: "Automatización",
       frontendDesc:
         "Flujos de trabajo inteligentes con n8n para optimizar procesos.",
       backend: "Backend & Bases de Datos",
       backendDesc:
-        "APIs con Django REST Framework y bases de datos PostgreSQL.",
+        "APIs con Node.js, Django REST Framework y PostgreSQL.",
       responsive: "Linux & Seguridad",
-      responsiveDesc:
-        "Administración de sistemas y enfoque en ciberseguridad.",
+      responsiveDesc: "Administración de sistemas y enfoque en ciberseguridad.",
     },
     // Skills
     skills: {
       title: "Skills & Tecnologías",
       subtitle:
         "Herramientas y tecnologías que utilizo para dar vida a los proyectos",
+    },
+    // Certificates
+    certificates: {
+      title: "Certificados",
+      subtitle: "Certificaciones y cursos que respaldan mi formación",
+      viewCredential: "Ver credencial",
     },
     // Experience
     experience: {
@@ -92,7 +98,8 @@ export const translations = {
     },
     // Footer
     footer: {
-      description: "Automatizando procesos y creando soluciones web desde Cuba.",
+      description:
+        "Automatizando procesos y creando soluciones web desde Cuba.",
       links: "Enlaces",
       follow: "Sígueme",
       createdWith: "Creado con",
@@ -105,6 +112,7 @@ export const translations = {
       about: "About",
       skills: "Skills",
       experience: "Experience",
+      certificates: "Certificates",
       projects: "Projects",
       contact: "Contact",
     },
@@ -113,7 +121,7 @@ export const translations = {
       greeting: "I'm",
       role: "Web & Automation Developer",
       description:
-        "Cybersecurity Engineering student passionate about web development and automation. I transform ideas into functional solutions with clean code.",
+        "Fullstack developer and automation specialist with a cybersecurity focus. I transform ideas into functional, secure and scalable solutions.",
       viewProjects: "View Projects",
       contact: "Contact Me",
     },
@@ -125,30 +133,33 @@ export const translations = {
       role: "Maikel Ferrer",
       passionate: "",
       description1:
-        "Cybersecurity Engineering student from Havana, Cuba. I'm passionate about fullstack web development, automation, and the world of artificial intelligence. I firmly believe in learning each technology in depth before using it, understanding its inner workings rather than relying on quick solutions.",
+        "Fullstack developer and cybersecurity engineer from Havana, Cuba. I'm passionate about web development, automation, and artificial intelligence. I firmly believe in mastering each technology in depth, understanding its inner workings rather than relying on superficial solutions.",
       description2:
-        "Currently I specialize in creating automation workflows with n8n, developing web applications with React and Django, and managing Linux systems. My goal is to combine my cybersecurity knowledge with development to create secure and efficient solutions.",
-      yearsExp: "Year learning",
+        "I specialize in creating automation workflows with n8n, developing modern web applications with React and Node.js, and managing Linux systems. My goal is to combine my cybersecurity knowledge with development to create secure and efficient solutions.",
+      yearsExp: "Year of experience",
       projectsCompleted: "Projects completed",
-      techDominated: "Technologies learned",
+      techDominated: "Technologies mastered",
       // Services
       webDesign: "Web Design",
       webDesignDesc:
-        "Modern and intuitive interfaces with React and Tailwind CSS.",
+        "Modern interfaces with React, Angular, Next.js and Tailwind CSS.",
       frontend: "Automation",
-      frontendDesc:
-        "Smart workflows with n8n to optimize processes.",
+      frontendDesc: "Smart workflows with n8n to optimize processes.",
       backend: "Backend & Databases",
-      backendDesc:
-        "APIs with Django REST Framework and PostgreSQL databases.",
+      backendDesc: "APIs with Node.js, Django REST Framework and PostgreSQL.",
       responsive: "Linux & Security",
-      responsiveDesc:
-        "System administration and cybersecurity focus.",
+      responsiveDesc: "System administration and cybersecurity focus.",
     },
     // Skills
     skills: {
       title: "Skills & Technologies",
       subtitle: "Tools and technologies I use to bring projects to life",
+    },
+    // Certificates
+    certificates: {
+      title: "Certificates",
+      subtitle: "Certifications and courses that support my training",
+      viewCredential: "View credential",
     },
     // Experience
     experience: {

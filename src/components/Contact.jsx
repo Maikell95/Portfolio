@@ -1,14 +1,8 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import {
-  FiMail,
-  FiMapPin,
-  FiSend,
-  FiGithub,
-  FiLinkedin,
-  FiTwitter,
-} from "react-icons/fi";
+import { FiMail, FiMapPin, FiSend } from "react-icons/fi";
+import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import "./Contact.css";
 
@@ -63,21 +57,17 @@ const Contact = () => {
       href: "mailto:maikeudis@gmail.com",
     },
     {
+      icon: <FaTelegramPlane />,
+      label: "Telegram",
+      value: "+53 5 586 5065",
+      href: "https://t.me/+5355865065",
+    },
+    {
       icon: <FiMapPin />,
       label: t.contact.location,
       value: "La Habana, Cuba",
-      href: "#",
+      href: "",
     },
-  ];
-
-  const socials = [
-    {
-      icon: <FiGithub />,
-      href: "https://github.com/Maikell95",
-      label: "GitHub",
-    },
-    { icon: <FiLinkedin />, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: <FiTwitter />, href: "https://twitter.com", label: "Twitter" },
   ];
 
   return (
@@ -113,31 +103,25 @@ const Contact = () => {
             <p>{t.contact.description}</p>
 
             <div className="contact-details">
-              {contactInfo.map((item) => (
-                <a key={item.label} href={item.href} className="contact-item">
-                  <div className="contact-icon">{item.icon}</div>
-                  <div>
-                    <span className="contact-label">{item.label}</span>
-                    <span className="contact-value">{item.value}</span>
+              {contactInfo.map((item) =>
+                item.href ? (
+                  <a key={item.label} href={item.href} className="contact-item" target="_blank" rel="noopener noreferrer">
+                    <div className="contact-icon">{item.icon}</div>
+                    <div>
+                      <span className="contact-label">{item.label}</span>
+                      <span className="contact-value">{item.value}</span>
+                    </div>
+                  </a>
+                ) : (
+                  <div key={item.label} className="contact-item no-link">
+                    <div className="contact-icon">{item.icon}</div>
+                    <div>
+                      <span className="contact-label">{item.label}</span>
+                      <span className="contact-value">{item.value}</span>
+                    </div>
                   </div>
-                </a>
-              ))}
-            </div>
-
-            <div className="contact-socials">
-              {socials.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-btn"
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
+                )
+              )}
             </div>
           </motion.div>
 
@@ -159,6 +143,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder={t.contact.namePlaceholder}
+                maxLength={20}
                 required
               />
             </div>
@@ -185,6 +170,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder={t.contact.messagePlaceholder}
                 rows="5"
+                maxLength={250}
                 required
               />
             </div>

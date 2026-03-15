@@ -1,0 +1,107 @@
+.certificates {
+  background: var(--bg-secondary);
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.certificate-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.certificate-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow:
+    0 20px 40px rgba(99, 102, 241, 0.15),
+    0 0 0 1px rgba(99, 102, 241, 0.1);
+}
+
+.certificate-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-gradient);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.certificate-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.certificate-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.certificate-card:hover .certificate-title {
+  color: var(--accent-primary);
+}
+
+.certificate-issuer {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.certificate-date {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.certificate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 50px;
+  color: var(--accent-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.certificate-link:hover {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: white;
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

@@ -19,14 +19,14 @@
 }
 
 [data-theme="light"] {
-  --bg-primary: #fafafa;
-  --bg-secondary: #ffffff;
+  --bg-primary: #f0f0f5;
+  --bg-secondary: #e8e8f0;
   --bg-card: #ffffff;
-  --text-primary: #18181b;
-  --text-secondary: #52525b;
-  --border-color: rgba(0, 0, 0, 0.1);
-  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  --glow: 0 0 40px rgba(99, 102, 241, 0.2);
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a5a;
+  --border-color: rgba(0, 0, 0, 0.12);
+  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18);
+  --glow: 0 0 40px rgba(99, 102, 241, 0.25);
 }
 
 * {
@@ -61,6 +61,42 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   max-width: 100%;
+}
+
+/* Animación de transición de tema - Transición suave global */
+* {
+  transition: 
+    background-color 0.6s ease,
+    border-color 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+/* Excluir elementos que no deben tener transición de color */
+*::before,
+svg,
+path,
+img,
+video,
+canvas {
+  transition: none !important;
+}
+
+/* Transición de color de texto más rápida */
+body,
+p,
+span,
+a,
+h1, h2, h3, h4, h5, h6,
+li,
+label,
+input,
+textarea,
+button {
+  transition: 
+    color 0.5s ease,
+    background-color 0.6s ease,
+    border-color 0.6s ease,
+    box-shadow 0.6s ease;
 }
 
 main {

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   SiJavascript,
@@ -10,9 +11,13 @@ import {
   SiTailwindcss,
   SiVite,
   SiPostgresql,
-  SiCplusplus,
   SiDotnet,
   SiLinux,
+  SiVuedotjs,
+  SiNodedotjs,
+  SiNextdotjs,
+  SiTypescript,
+  SiAngular,
 } from "react-icons/si";
 import { FiSettings } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
@@ -20,22 +25,29 @@ import "./Skills.css";
 
 const Skills = () => {
   const { t } = useLanguage();
+  const [activeSkill, setActiveSkill] = useState(null);
 
   const skills = [
-    { name: "Python", icon: <SiPython />, color: "#3776AB", level: 55 },
-    { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E", level: 50 },
-    { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26", level: 60 },
-    { name: "CSS3", icon: <SiCss3 />, color: "#1572B6", level: 55 },
-    { name: "React", icon: <SiReact />, color: "#61DAFB", level: 45 },
-    { name: "Django", icon: <SiDjango />, color: "#092E20", level: 45 },
-    { name: "PostgreSQL", icon: <SiPostgresql />, color: "#4169E1", level: 50 },
-    { name: "C++", icon: <SiCplusplus />, color: "#00599C", level: 45 },
-    { name: "C#", icon: <SiDotnet />, color: "#512BD4", level: 40 },
-    { name: "Tailwind", icon: <SiTailwindcss />, color: "#06B6D4", level: 50 },
-    { name: "n8n", icon: <FiSettings />, color: "#EA4B71", level: 65 },
-    { name: "Linux", icon: <SiLinux />, color: "#FCC624", level: 70 },
-    { name: "Git", icon: <SiGit />, color: "#F05032", level: 45 },
-    { name: "Vite", icon: <SiVite />, color: "#646CFF", level: 50 },
+    // Fila 1: Lenguajes base
+    { name: "Python", icon: <SiPython />, color: "#3776AB" },
+    { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26" },
+    { name: "CSS3", icon: <SiCss3 />, color: "#1572B6" },
+    { name: "TypeScript", icon: <SiTypescript />, color: "#3178C6" },
+    // Fila 2: Frameworks Frontend
+    { name: "React", icon: <SiReact />, color: "#61DAFB" },
+    { name: "Vue", icon: <SiVuedotjs />, color: "#4FC08D" },
+    { name: "Angular", icon: <SiAngular />, color: "#DD0031" },
+    { name: "Next.js", icon: <SiNextdotjs />, color: "#808080" },
+    { name: "Tailwind", icon: <SiTailwindcss />, color: "#06B6D4" },
+    // Fila 3: Backend y herramientas
+    { name: "Node.js", icon: <SiNodedotjs />, color: "#339933" },
+    { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
+    { name: "Django", icon: <SiDjango />, color: "#092E20" },
+    { name: "PostgreSQL", icon: <SiPostgresql />, color: "#4169E1" },
+    { name: "n8n", icon: <FiSettings />, color: "#EA4B71" },
+    { name: "Git", icon: <SiGit />, color: "#F05032" },
+    { name: "Linux", icon: <SiLinux />, color: "#FCC624" },
+    { name: "Vite", icon: <SiVite />, color: "#646CFF" },
   ];
 
   return (
@@ -59,34 +71,22 @@ const Skills = () => {
           {t.skills.subtitle}
         </motion.p>
 
-        <div className="skills-grid">
+        <div className="skills-container">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              className="skill-card card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className={`skill-chip ${activeSkill === skill.name ? "active" : ""}`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.05 }}
+              transition={{ delay: index * 0.03 }}
+              style={{ "--skill-color": skill.color }}
+              onMouseEnter={() => setActiveSkill(skill.name)}
+              onMouseLeave={() => setActiveSkill(null)}
+              onClick={() => setActiveSkill(activeSkill === skill.name ? null : skill.name)}
             >
-              <div className="skill-icon" style={{ color: skill.color }}>
-                {skill.icon}
-              </div>
-              <h4 className="skill-name">{skill.name}</h4>
-              <div className="skill-bar">
-                <motion.div
-                  className="skill-progress"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: index * 0.05 }}
-                  style={{
-                    background: `linear-gradient(90deg, ${skill.color}, ${skill.color}88)`,
-                  }}
-                />
-              </div>
-              <span className="skill-level">{skill.level}%</span>
+              <span className="skill-name">{skill.name}</span>
+              <span className="skill-icon">{skill.icon}</span>
             </motion.div>
           ))}
         </div>

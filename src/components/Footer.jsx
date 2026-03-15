@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiTwitter, FiHeart } from "react-icons/fi";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 import "./Footer.css";
 
@@ -16,8 +16,7 @@ const Footer = () => {
 
   const socials = [
     { icon: <FiGithub />, href: "https://github.com/Maikell95" },
-    { icon: <FiLinkedin />, href: "https://linkedin.com" },
-    { icon: <FiTwitter />, href: "https://twitter.com" },
+    { icon: <FiLinkedin />, href: "https://www.linkedin.com/in/maikell-ferrer-4bb997399/" },
   ];
 
   return (
@@ -26,7 +25,9 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-brand">
             <a href="#hero" className="footer-logo">
-              <span>&lt;</span>{language === "es" ? "Portafolio" : "Portfolio"}<span>/&gt;</span>
+              <span>&lt;</span>
+              {language === "es" ? "Portafolio" : "Portfolio"}
+              <span>/&gt;</span>
             </a>
             <p>{t.footer.description}</p>
           </div>
@@ -62,7 +63,8 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>
-            © {currentYear} Maikel Ferrer. {t.footer.createdWith} React, Vite & Framer Motion
+            © {currentYear} Maikel Ferrer. {t.footer.createdWith} React, Vite &
+            Framer Motion
           </p>
         </div>
       </div>
