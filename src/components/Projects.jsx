@@ -69,6 +69,7 @@ const Projects = () => {
       tags: ["React 19", "TypeScript", "Tailwind CSS", "Express", "Supabase", "PayPal"],
       category: "web",
       github: "https://github.com/Maikell95/Cobble-Quest-Net-Frontend",
+      demo: "https://store.wrquest.xyz",
       featured: true,
     },
     // Agrega tus proyectos aquí usando la plantilla de arriba
