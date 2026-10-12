@@ -59,7 +59,47 @@ const projects = [
       title: "Posible cliente (IA)",
       lines: ["De: Roberto Díaz", "Asunto: Consulta", "Vi tu trabajo en GitHub y quería saber si haces sistemas de reservas…"],
     },
-    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations" }],
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/lector-correos-clientes" }],
+  },
+  {
+    id: "vigilante-errores",
+    name: "Vigilante de errores",
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n", en: "n8n automation" },
+    text: {
+      es: "Cuando un flujo de n8n falla, decide qué hacer. Si es por conexión, lo relanza hasta 3 veces esperando 2, 10 y 30 minutos; si no, me avisa por Telegram al momento. El mismo fallo repetido solo avisa una vez cada 30 minutos.",
+      en: "When an n8n workflow fails, it decides what to do. Connection errors get retried up to 3 times, waiting 2, 10 and 30 minutes; anything else pings me on Telegram right away. A repeated failure only notifies once every 30 minutes.",
+    },
+    stack: "n8n · n8n REST API · Telegram",
+    preview: {
+      title: "Fallo en n8n",
+      lines: [
+        { es: "Flujo: Lector de correos", en: "Workflow: Email reader" },
+        "Error: ETIMEDOUT",
+        { es: "Falló 4 veces (original + 3 reintentos).", en: "Failed 4 times (original + 3 retries)." },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/vigilante-errores" }],
+  },
+  {
+    id: "monitor-conexion",
+    name: "Monitor de conexión",
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n", en: "n8n automation" },
+    text: {
+      es: "Comprueba internet cada minuto. Cuando vuelve tras una caída, reinicia los flujos activos y relanza todo lo que falló mientras no había conexión. Así un corte de luz o de red no deja trabajo perdido.",
+      en: "Checks the connection every minute. When it comes back after an outage, it restarts active workflows and re-runs everything that failed while offline, so a power or network cut leaves no work behind.",
+    },
+    stack: "n8n · n8n REST API · Telegram",
+    preview: {
+      title: { es: "Conexión recuperada", en: "Connection restored" },
+      lines: [
+        { es: "Tras 12 min sin internet.", en: "After 12 min offline." },
+        { es: "Reinicié 2 flujos.", en: "Restarted 2 workflows." },
+        { es: "Relancé 5 ejecuciones.", en: "Re-ran 5 executions." },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/monitor-conexion" }],
   },
   {
     id: "midex",
@@ -110,7 +150,7 @@ const Work = () => {
                 {p.image && <img src={p.image} alt={p.name} loading="lazy" />}
                 {p.preview && (
                   <div className="work-preview mono">
-                    <strong>{p.preview.title}</strong>
+                    <strong>{typeof p.preview.title === "string" ? p.preview.title : p.preview.title[language]}</strong>
                     {p.preview.lines.map((line) => {
                       const text = typeof line === "string" ? line : line[language];
                       return <span key={text}>{text}</span>;
