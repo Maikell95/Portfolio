@@ -52,7 +52,7 @@ const Contact = () => {
     { icon: <FiMail />, label: "maikeudis@gmail.com", href: "mailto:maikeudis@gmail.com" },
     { icon: <FaTelegramPlane />, label: "Telegram", href: "https://t.me/+5355865065" },
     { icon: <FiGithub />, label: "GitHub", href: "https://github.com/Maikell95" },
-    { icon: <FiLinkedin />, label: "LinkedIn", href: "https://www.linkedin.com/in/maikell-ferrer-4bb997399/" },
+    { icon: <FiLinkedin />, label: "LinkedIn", href: "https://www.linkedin.com/in/maikelferrer/" },
   ];
 
   return (
