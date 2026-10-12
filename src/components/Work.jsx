@@ -9,20 +9,41 @@ const categories = ["webs", "automations", "minecraft", "apps"];
 
 const projects = [
   {
-    id: "cobble-quest",
-    name: "Cobble Quest",
+    id: "cobble-quest-web",
+    name: "Cobble Quest · Web",
     categories: ["minecraft", "webs"],
     kind: { es: "Tienda para servidor de Minecraft", en: "Minecraft server store" },
     text: {
-      es: "Tienda de un servidor de Cobblemon en producción. El jugador paga con PayPal o tarjeta y recibe el rango o los objetos en el juego al momento: la API ejecuta los comandos en todos los servidores de la red a través del panel Pelican. Nadie entrega nada a mano.",
-      en: "Live store for a Cobblemon server. Players pay with PayPal or card and get their rank or items in-game instantly: the API runs the commands on every server in the network through the Pelican panel. Nobody delivers anything by hand.",
+      es: "Web y tienda de un servidor de Cobblemon en producción. Catálogo, carrito y pago con PayPal o tarjeta, rangos, wiki de Pokémon generada desde el repositorio oficial de Cobblemon y jugadores en línea en tiempo real.",
+      en: "Website and store for a live Cobblemon server. Catalog, cart and PayPal or card checkout, ranks, a Pokémon wiki generated from the official Cobblemon repository and live online players.",
     },
-    stack: "React · TypeScript · Express 5 · Supabase · PayPal · Pelican API",
+    stack: "React 19 · TypeScript · Vite · Tailwind · PayPal JS SDK",
     image: `${BASE}images/cobblequest.jpg`,
     links: [
       { type: "demo", href: "https://store.wrquest.xyz" },
-      { type: "code", href: "https://github.com/Maikell95/Cobble-Quest-Net-Backend" },
+      { type: "code", href: "https://github.com/Maikell95/Cobble-Quest-Net-Frontend" },
     ],
+  },
+  {
+    id: "cobble-quest-api",
+    name: "Cobble Quest · API",
+    categories: ["minecraft", "webs"],
+    kind: { es: "Backend con entrega automática", en: "Backend with automatic delivery" },
+    text: {
+      es: "La API detrás de la tienda. Captura el pago, decide en el servidor qué comandos tocan, sin fiarse de lo que manda el navegador, y los ejecuta en todos los servidores de la red a través del panel Pelican. El jugador recibe lo que compró al momento y nadie entrega nada a mano.",
+      en: "The API behind the store. It captures the payment, decides server-side which commands to run, never trusting what the browser sends, and executes them on every server in the network through the Pelican panel. Players get what they bought instantly and nobody delivers anything by hand.",
+    },
+    stack: "Node.js · Express 5 · TypeScript · Supabase · PayPal · Stripe · Pelican API",
+    preview: {
+      title: "POST /api/payments/capture-order",
+      lines: [
+        { es: "✓ pago capturado · PayPal", en: "✓ payment captured · PayPal" },
+        "→ give Steve pokemon:rare_candy 8",
+        "→ lp user Steve parent add vip",
+        { es: "✓ entregado en lobby, juego y proxy", en: "✓ delivered to lobby, game and proxy" },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/Cobble-Quest-Net-Backend" }],
   },
   {
     id: "lector-correos",
@@ -51,19 +72,6 @@ const projects = [
     },
     stack: "Expo · React Native · TypeScript · @smogon/calc",
     links: [{ type: "code", href: "https://github.com/Maikell95/MiDex" }],
-  },
-  {
-    id: "sabor-autentico",
-    name: "Sabor Auténtico",
-    categories: ["webs"],
-    kind: { es: "Web de restaurante", en: "Restaurant website" },
-    text: {
-      es: "Web completa para un restaurante: menú interactivo, carrito, reservas, autenticación y panel de administración. Modo claro y oscuro.",
-      en: "Full website for a restaurant: interactive menu, cart, bookings, authentication and admin panel. Light and dark mode.",
-    },
-    stack: "React · Node.js · PostgreSQL · Tailwind · JWT",
-    image: `${BASE}images/sabor-autentico.png`,
-    links: [],
   },
 ];
 
@@ -103,9 +111,10 @@ const Work = () => {
                 {p.preview && (
                   <div className="work-preview mono">
                     <strong>{p.preview.title}</strong>
-                    {p.preview.lines.map((line) => (
-                      <span key={line}>{line}</span>
-                    ))}
+                    {p.preview.lines.map((line) => {
+                      const text = typeof line === "string" ? line : line[language];
+                      return <span key={text}>{text}</span>;
+                    })}
                   </div>
                 )}
               </div>
