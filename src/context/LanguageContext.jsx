@@ -11,9 +11,9 @@ export const translations = {
       contact: "Contacto",
     },
     hero: {
-      title: "Webs, automatizaciones y servicios dedicados para servidores de Minecraft.",
+      title: "Webs, APIs, automatizaciones y servicios dedicados para servidores de Minecraft.",
       intro:
-        "Soy Maikel Ferrer, desarrollador en La Habana y estudiante de último año de Ingeniería en Ciberseguridad. Hago webs que trabajan solas: cobran, entregan y avisan.",
+        "Soy Maikel Ferrer, desarrollador en La Habana y estudiante de último año de Ingeniería en Ciberseguridad. Hago webs y sistemas que trabajan solos: cobran, entregan y avisan.",
       ctaWork: "Ver trabajo",
       ctaContact: "Escríbeme",
       status: "Disponible para proyectos",
@@ -26,6 +26,7 @@ export const translations = {
       private: "Proyecto privado",
       categories: {
         webs: "Webs",
+        apis: "APIs",
         automations: "Automatizaciones",
         minecraft: "Minecraft",
         apps: "Apps",
@@ -38,6 +39,10 @@ export const translations = {
         {
           name: "Webs",
           text: "Tiendas, reservas y paneles de administración. Con pagos, despliegue y seguridad desde el principio.",
+        },
+        {
+          name: "APIs y software a medida",
+          text: "Backends con Node.js y PostgreSQL, integraciones con pasarelas de pago y servicios externos, y herramientas internas para tu negocio.",
         },
         {
           name: "Automatizaciones",
@@ -83,9 +88,9 @@ export const translations = {
       contact: "Contact",
     },
     hero: {
-      title: "Websites, automations and dedicated services for Minecraft servers.",
+      title: "Websites, APIs, automations and dedicated services for Minecraft servers.",
       intro:
-        "I'm Maikel Ferrer, a developer based in Havana and a final-year Cybersecurity Engineering student. I build websites that run on their own: they take payments, deliver and notify.",
+        "I'm Maikel Ferrer, a developer based in Havana and a final-year Cybersecurity Engineering student. I build websites and systems that run on their own: they take payments, deliver and notify.",
       ctaWork: "See work",
       ctaContact: "Get in touch",
       status: "Available for projects",
@@ -98,6 +103,7 @@ export const translations = {
       private: "Private project",
       categories: {
         webs: "Websites",
+        apis: "APIs",
         automations: "Automations",
         minecraft: "Minecraft",
         apps: "Apps",
@@ -110,6 +116,10 @@ export const translations = {
         {
           name: "Websites",
           text: "Stores, booking systems and admin panels. Payments, deployment and security built in from day one.",
+        },
+        {
+          name: "APIs & custom software",
+          text: "Node.js and PostgreSQL backends, integrations with payment gateways and external services, and internal tools for your business.",
         },
         {
           name: "Automations",

@@ -5,7 +5,7 @@ import "./Work.css";
 
 const BASE = import.meta.env.BASE_URL;
 
-const categories = ["webs", "automations", "minecraft", "apps"];
+const categories = ["webs", "apis", "automations", "minecraft", "apps"];
 
 const projects = [
   {
@@ -27,7 +27,7 @@ const projects = [
   {
     id: "cobble-quest-api",
     name: "Cobble Quest · API",
-    categories: ["minecraft", "webs"],
+    categories: ["apis", "minecraft"],
     kind: { es: "Backend con entrega automática", en: "Backend with automatic delivery" },
     text: {
       es: "La API detrás de la tienda. Captura el pago, decide en el servidor qué comandos tocan, sin fiarse de lo que manda el navegador, y los ejecuta en todos los servidores de la red a través del panel Pelican. El jugador recibe lo que compró al momento y nadie entrega nada a mano.",
