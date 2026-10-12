@@ -13,7 +13,7 @@ export const translations = {
     hero: {
       title: "Webs, automatizaciones y servicios dedicados para servidores de Minecraft.",
       intro:
-        "Soy Maikel Ferrer, ingeniero en ciberseguridad en La Habana. Hago webs que trabajan solas: cobran, entregan y avisan.",
+        "Soy Maikel Ferrer, desarrollador en La Habana y estudiante de último año de Ingeniería en Ciberseguridad. Hago webs que trabajan solas: cobran, entregan y avisan.",
       ctaWork: "Ver trabajo",
       ctaContact: "Escríbeme",
       status: "Disponible para proyectos",
@@ -51,8 +51,8 @@ export const translations = {
     },
     about: {
       label: "sobre mí",
-      title: "Ingeniero en ciberseguridad que programa",
-      p1: "Vivo en La Habana y trabajo en remoto. Mi formación es en ciberseguridad, y se nota en lo que entrego: validación en el servidor, límites de peticiones y nada de fiarse de lo que llega del navegador.",
+      title: "Desarrollador con base en ciberseguridad",
+      p1: "Vivo en La Habana y trabajo en remoto. Estoy en el último año de Ingeniería en Ciberseguridad en la UCI, y se nota en lo que entrego: validación en el servidor, límites de peticiones y nada de fiarse de lo que llega del navegador.",
       p2: "Me gusta entender cómo funciona cada pieza por dentro antes de usarla.",
       stack: "Stack",
       languages: "Idiomas",
@@ -85,7 +85,7 @@ export const translations = {
     hero: {
       title: "Websites, automations and dedicated services for Minecraft servers.",
       intro:
-        "I'm Maikel Ferrer, a cybersecurity engineer based in Havana. I build websites that run on their own: they take payments, deliver and notify.",
+        "I'm Maikel Ferrer, a developer based in Havana and a final-year Cybersecurity Engineering student. I build websites that run on their own: they take payments, deliver and notify.",
       ctaWork: "See work",
       ctaContact: "Get in touch",
       status: "Available for projects",
@@ -123,8 +123,8 @@ export const translations = {
     },
     about: {
       label: "about",
-      title: "A cybersecurity engineer who codes",
-      p1: "I live in Havana and work remotely. My background is in cybersecurity, and it shows in what I ship: server-side validation, rate limiting and never trusting what comes from the browser.",
+      title: "A developer grounded in cybersecurity",
+      p1: "I live in Havana and work remotely. I'm in my final year of Cybersecurity Engineering at UCI, and it shows in what I ship: server-side validation, rate limiting and never trusting what comes from the browser.",
       p2: "I like to understand how each piece works inside before I use it.",
       stack: "Stack",
       languages: "Languages",
