@@ -4,203 +4,135 @@ const LanguageContext = createContext();
 
 export const translations = {
   es: {
-    // Navbar
     nav: {
-      home: "Inicio",
+      work: "Trabajo",
+      services: "Servicios",
       about: "Sobre mí",
-      skills: "Skills",
-      experience: "Experiencia",
-      certificates: "Certificados",
-      projects: "Proyectos",
       contact: "Contacto",
     },
-    // Hero
     hero: {
-      greeting: "Soy",
-      role: "Desarrollador Web y de Automatizaciones",
-      description:
-        "Desarrollador fullstack y especialista en automatizaciones con enfoque en ciberseguridad. Transformo ideas en soluciones funcionales, seguras y escalables.",
-      viewProjects: "Ver Proyectos",
-      contact: "Contactar",
+      title: "Webs, automatizaciones y servicios dedicados para servidores de Minecraft.",
+      intro:
+        "Soy Maikel Ferrer, ingeniero en ciberseguridad en La Habana. Hago webs que trabajan solas: cobran, entregan y avisan.",
+      ctaWork: "Ver trabajo",
+      ctaContact: "Escríbeme",
+      status: "Disponible para proyectos",
     },
-    // About
+    work: {
+      label: "trabajo",
+      title: "Lo que he hecho",
+      demo: "Ver en vivo",
+      code: "Código",
+      private: "Proyecto privado",
+    },
+    services: {
+      label: "servicios",
+      title: "Lo que hago",
+      items: [
+        {
+          name: "Webs",
+          text: "Tiendas, reservas y paneles de administración. Con pagos, despliegue y seguridad desde el principio.",
+        },
+        {
+          name: "Automatizaciones",
+          text: "Flujos con n8n, bots de Telegram e integraciones entre servicios. Lo que haces a mano cada día, que pase solo.",
+        },
+        {
+          name: "Servicios dedicados",
+          text: "Para servidores de Minecraft: tiendas con entrega automática en el juego, webs del servidor, scripts de KubeJS y plugins.",
+        },
+      ],
+    },
     about: {
-      title: "Sobre Mí",
-      subtitle: "Conoce un poco más sobre mi perfil profesional",
-      intro: "¡Hola! Soy",
-      role: "Maikel Ferrer",
-      passionate: "",
-      description1:
-        "Desarrollador fullstack e ingeniero en ciberseguridad desde La Habana, Cuba. Me apasiona el desarrollo web, las automatizaciones y la inteligencia artificial. Creo firmemente en dominar cada tecnología a fondo, comprendiendo su funcionamiento interno en lugar de depender de soluciones superficiales.",
-      description2:
-        "Me especializo en crear flujos de automatización con n8n, desarrollar aplicaciones web modernas con React y Node.js, y administrar sistemas Linux. Mi objetivo es combinar mis conocimientos en ciberseguridad con el desarrollo para crear soluciones seguras y eficientes.",
-      yearsExp: "Año de experiencia",
-      projectsCompleted: "Proyectos completados",
-      techDominated: "Tecnologías dominadas",
-      // Services
-      webDesign: "Diseño Web",
-      webDesignDesc:
-        "Interfaces modernas con React, Angular, Next.js y Tailwind CSS.",
-      frontend: "Automatización",
-      frontendDesc:
-        "Flujos de trabajo inteligentes con n8n para optimizar procesos.",
-      backend: "Backend & Bases de Datos",
-      backendDesc:
-        "APIs con Node.js, Django REST Framework y PostgreSQL.",
-      responsive: "Linux & Seguridad",
-      responsiveDesc: "Administración de sistemas y enfoque en ciberseguridad.",
+      label: "sobre mí",
+      title: "Ingeniero en ciberseguridad que programa",
+      p1: "Vivo en La Habana y trabajo en remoto. Mi formación es en ciberseguridad, y se nota en lo que entrego: validación en el servidor, límites de peticiones y nada de fiarse de lo que llega del navegador.",
+      p2: "Me gusta entender cómo funciona cada pieza por dentro antes de usarla.",
+      stack: "Stack",
+      languages: "Idiomas",
+      languagesValue: "Español nativo · Inglés B1+",
     },
-    // Skills
-    skills: {
-      title: "Skills & Tecnologías",
-      subtitle:
-        "Herramientas y tecnologías que utilizo para dar vida a los proyectos",
-    },
-    // Certificates
-    certificates: {
-      title: "Certificados",
-      subtitle: "Certificaciones y cursos que respaldan mi formación",
-      viewCredential: "Ver credencial",
-    },
-    // Experience
-    experience: {
-      title: "Experiencia Laboral",
-      subtitle: "Mi trayectoria profesional en el desarrollo de software",
-      present: "Presente",
-    },
-    // Projects
-    projects: {
-      title: "Mis Proyectos",
-      subtitle: "Una selección de mis trabajos más recientes",
-      all: "Todos",
-      automation: "Automatización",
-      web: "Desarrollo Web",
-      security: "Ciberseguridad",
-    },
-    // Contact
     contact: {
-      title: "Contacto",
-      subtitle: "¿Tienes un proyecto en mente? ¡Hablemos!",
-      connect: "Conectemos",
-      description:
-        "Estoy abierto a nuevas oportunidades y colaboraciones. No dudes en contactarme si tienes alguna pregunta o propuesta.",
-      email: "Email",
-      location: "Ubicación",
+      label: "contacto",
+      title: "Cuéntame qué necesitas",
+      text: "Respondo por correo o Telegram. Si ya tienes una idea de plazos o presupuesto, inclúyela.",
       name: "Nombre",
-      namePlaceholder: "Tu nombre",
-      emailPlaceholder: "tu@email.com",
+      email: "Correo",
       message: "Mensaje",
-      messagePlaceholder: "Cuéntame sobre tu proyecto...",
-      send: "Enviar mensaje",
-      sending: "Enviando...",
-      success: "✅ ¡Mensaje enviado correctamente!",
-      error: "❌ Error al enviar. Intenta de nuevo.",
+      send: "Enviar",
+      sending: "Enviando…",
+      success: "Mensaje enviado. Te respondo pronto.",
+      error: "No se pudo enviar. Escríbeme directamente al correo.",
+      cv: "Descargar CV",
     },
-    // Footer
     footer: {
-      description:
-        "Automatizando procesos y creando soluciones web desde Cuba.",
-      links: "Enlaces",
-      follow: "Sígueme",
-      createdWith: "Creado con",
+      location: "La Habana, Cuba",
     },
   },
   en: {
-    // Navbar
     nav: {
-      home: "Home",
+      work: "Work",
+      services: "Services",
       about: "About",
-      skills: "Skills",
-      experience: "Experience",
-      certificates: "Certificates",
-      projects: "Projects",
       contact: "Contact",
     },
-    // Hero
     hero: {
-      greeting: "I'm",
-      role: "Web & Automation Developer",
-      description:
-        "Fullstack developer and automation specialist with a cybersecurity focus. I transform ideas into functional, secure and scalable solutions.",
-      viewProjects: "View Projects",
-      contact: "Contact Me",
+      title: "Websites, automations and dedicated services for Minecraft servers.",
+      intro:
+        "I'm Maikel Ferrer, a cybersecurity engineer based in Havana. I build websites that run on their own: they take payments, deliver and notify.",
+      ctaWork: "See work",
+      ctaContact: "Get in touch",
+      status: "Available for projects",
     },
-    // About
+    work: {
+      label: "work",
+      title: "What I've built",
+      demo: "Live",
+      code: "Code",
+      private: "Private project",
+    },
+    services: {
+      label: "services",
+      title: "What I do",
+      items: [
+        {
+          name: "Websites",
+          text: "Stores, booking systems and admin panels. Payments, deployment and security built in from day one.",
+        },
+        {
+          name: "Automations",
+          text: "n8n workflows, Telegram bots and integrations between services. What you do by hand every day, done for you.",
+        },
+        {
+          name: "Dedicated services",
+          text: "For Minecraft servers: stores with automatic in-game delivery, server websites, KubeJS scripts and plugins.",
+        },
+      ],
+    },
     about: {
-      title: "About Me",
-      subtitle: "Learn a little more about my professional profile",
-      intro: "Hi! I'm",
-      role: "Maikel Ferrer",
-      passionate: "",
-      description1:
-        "Fullstack developer and cybersecurity engineer from Havana, Cuba. I'm passionate about web development, automation, and artificial intelligence. I firmly believe in mastering each technology in depth, understanding its inner workings rather than relying on superficial solutions.",
-      description2:
-        "I specialize in creating automation workflows with n8n, developing modern web applications with React and Node.js, and managing Linux systems. My goal is to combine my cybersecurity knowledge with development to create secure and efficient solutions.",
-      yearsExp: "Year of experience",
-      projectsCompleted: "Projects completed",
-      techDominated: "Technologies mastered",
-      // Services
-      webDesign: "Web Design",
-      webDesignDesc:
-        "Modern interfaces with React, Angular, Next.js and Tailwind CSS.",
-      frontend: "Automation",
-      frontendDesc: "Smart workflows with n8n to optimize processes.",
-      backend: "Backend & Databases",
-      backendDesc: "APIs with Node.js, Django REST Framework and PostgreSQL.",
-      responsive: "Linux & Security",
-      responsiveDesc: "System administration and cybersecurity focus.",
+      label: "about",
+      title: "A cybersecurity engineer who codes",
+      p1: "I live in Havana and work remotely. My background is in cybersecurity, and it shows in what I ship: server-side validation, rate limiting and never trusting what comes from the browser.",
+      p2: "I like to understand how each piece works inside before I use it.",
+      stack: "Stack",
+      languages: "Languages",
+      languagesValue: "Spanish (native) · English B1+",
     },
-    // Skills
-    skills: {
-      title: "Skills & Technologies",
-      subtitle: "Tools and technologies I use to bring projects to life",
-    },
-    // Certificates
-    certificates: {
-      title: "Certificates",
-      subtitle: "Certifications and courses that support my training",
-      viewCredential: "View credential",
-    },
-    // Experience
-    experience: {
-      title: "Work Experience",
-      subtitle: "My professional career in software development",
-      present: "Present",
-    },
-    // Projects
-    projects: {
-      title: "My Projects",
-      subtitle: "A selection of my most recent works",
-      all: "All",
-      automation: "Automation",
-      web: "Web Development",
-      security: "Cybersecurity",
-    },
-    // Contact
     contact: {
-      title: "Contact",
-      subtitle: "Have a project in mind? Let's talk!",
-      connect: "Let's Connect",
-      description:
-        "I'm open to new opportunities and collaborations. Feel free to contact me if you have any questions or proposals.",
-      email: "Email",
-      location: "Location",
+      label: "contact",
+      title: "Tell me what you need",
+      text: "I reply by email or Telegram. If you already have a timeline or budget in mind, include it.",
       name: "Name",
-      namePlaceholder: "Your name",
-      emailPlaceholder: "your@email.com",
+      email: "Email",
       message: "Message",
-      messagePlaceholder: "Tell me about your project...",
-      send: "Send message",
-      sending: "Sending...",
-      success: "✅ Message sent successfully!",
-      error: "❌ Failed to send. Please try again.",
+      send: "Send",
+      sending: "Sending…",
+      success: "Message sent. I'll get back to you soon.",
+      error: "Couldn't send it. Email me directly instead.",
+      cv: "Download CV",
     },
-    // Footer
     footer: {
-      description: "Automating processes and building web solutions from Cuba.",
-      links: "Links",
-      follow: "Follow me",
-      createdWith: "Built with",
+      location: "Havana, Cuba",
     },
   },
 };

@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { FiMail, FiMapPin, FiSend } from "react-icons/fi";
+import { FiMail, FiGithub, FiLinkedin, FiDownload } from "react-icons/fi";
 import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import "./Contact.css";
@@ -49,169 +48,55 @@ const Contact = () => {
       );
   };
 
-  const contactInfo = [
-    {
-      icon: <FiMail />,
-      label: t.contact.email,
-      value: "maikeudis@gmail.com",
-      href: "mailto:maikeudis@gmail.com",
-    },
-    {
-      icon: <FaTelegramPlane />,
-      label: "Telegram",
-      value: "+53 5 586 5065",
-      href: "https://t.me/+5355865065",
-    },
-    {
-      icon: <FiMapPin />,
-      label: t.contact.location,
-      value: "La Habana, Cuba",
-      href: "",
-    },
+  const links = [
+    { icon: <FiMail />, label: "maikeudis@gmail.com", href: "mailto:maikeudis@gmail.com" },
+    { icon: <FaTelegramPlane />, label: "Telegram", href: "https://t.me/+5355865065" },
+    { icon: <FiGithub />, label: "GitHub", href: "https://github.com/Maikell95" },
+    { icon: <FiLinkedin />, label: "LinkedIn", href: "https://www.linkedin.com/in/maikell-ferrer-4bb997399/" },
   ];
 
   return (
-    <section id="contact" className="section contact">
-      <div className="container">
-        <motion.h2
-          className="section-title"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          {t.contact.title}
-        </motion.h2>
-        <motion.p
-          className="section-subtitle"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-        >
-          {t.contact.subtitle}
-        </motion.p>
-
-        <div className="contact-content">
-          <motion.div
-            className="contact-info"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <h3>{t.contact.connect}</h3>
-            <p>{t.contact.description}</p>
-
-            <div className="contact-details">
-              {contactInfo.map((item) =>
-                item.href ? (
-                  <a key={item.label} href={item.href} className="contact-item" target="_blank" rel="noopener noreferrer">
-                    <div className="contact-icon">{item.icon}</div>
-                    <div>
-                      <span className="contact-label">{item.label}</span>
-                      <span className="contact-value">{item.value}</span>
-                    </div>
-                  </a>
-                ) : (
-                  <div key={item.label} className="contact-item no-link">
-                    <div className="contact-icon">{item.icon}</div>
-                    <div>
-                      <span className="contact-label">{item.label}</span>
-                      <span className="contact-value">{item.value}</span>
-                    </div>
-                  </div>
-                )
-              )}
-            </div>
-          </motion.div>
-
-          <motion.form
-            ref={formRef}
-            className="contact-form card"
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <div className="form-group">
-              <label htmlFor="name">{t.contact.name}</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder={t.contact.namePlaceholder}
-                maxLength={20}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">{t.contact.email}</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder={t.contact.emailPlaceholder}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="message">{t.contact.message}</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder={t.contact.messagePlaceholder}
-                rows="5"
-                maxLength={250}
-                required
-              />
-            </div>
-
-            <motion.button
-              type="submit"
-              className="btn btn-primary submit-btn"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              disabled={status === "sending"}
-            >
-              {status === "sending" ? (
-                t.contact.sending
-              ) : (
-                <>
-                  <FiSend /> {t.contact.send}
-                </>
-              )}
-            </motion.button>
-
-            {status === "success" && (
-              <motion.p
-                className="success-message"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                {t.contact.success}
-              </motion.p>
-            )}
-
-            {status === "error" && (
-              <motion.p
-                className="error-message"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                {t.contact.error || "Error al enviar. Intenta de nuevo."}
-              </motion.p>
-            )}
-          </motion.form>
+    <section id="contact" className="section">
+      <div className="container contact-inner">
+        <div>
+          <p className="section-label">{t.contact.label}</p>
+          <h2 className="section-title">{t.contact.title}</h2>
+          <p className="contact-text">{t.contact.text}</p>
+          <ul className="contact-links">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.icon} {l.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a href={`${import.meta.env.BASE_URL}cv.pdf`} download>
+                <FiDownload /> {t.contact.cv}
+              </a>
+            </li>
+          </ul>
         </div>
+
+        <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
+          <label>
+            {t.contact.name}
+            <input name="name" value={formData.name} onChange={handleChange} required />
+          </label>
+          <label>
+            {t.contact.email}
+            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+          </label>
+          <label>
+            {t.contact.message}
+            <textarea name="message" rows="5" value={formData.message} onChange={handleChange} required />
+          </label>
+          <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
+            {status === "sending" ? t.contact.sending : t.contact.send}
+          </button>
+          {status === "success" && <p className="form-status ok">{t.contact.success}</p>}
+          {status === "error" && <p className="form-status error">{t.contact.error}</p>}
+        </form>
       </div>
     </section>
   );
