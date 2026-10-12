@@ -39,6 +39,7 @@
 }
 
 .work-item {
+  animation: work-in 0.35s ease both;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 2.5rem;
@@ -131,5 +132,18 @@
   .work-item {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+}
+
+@keyframes work-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-item {
+    animation: none;
   }
 }

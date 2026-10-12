@@ -25,9 +25,31 @@
 }
 
 .nav-links a {
+  position: relative;
   color: var(--text-muted);
   text-decoration: none;
   font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -19px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.nav-links a.active {
+  color: var(--text);
+}
+
+.nav-links a.active::after {
+  transform: scaleX(1);
 }
 
 .nav-links a:hover {
@@ -84,5 +106,26 @@
   .nav-links a {
     padding: 0.9rem 1.5rem;
     border-top: 1px solid var(--border);
+  }
+
+  .nav-links a::after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: 3px;
+    height: auto;
+    transform: scaleY(0);
+  }
+
+  .nav-links a.active::after {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a,
+  .nav-links a::after {
+    transition: none;
   }
 }

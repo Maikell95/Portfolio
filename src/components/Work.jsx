@@ -95,9 +95,9 @@ const Work = () => {
           ))}
         </div>
 
-        <div className="work-list" role="tabpanel">
-          {visible.map((p) => (
-            <article key={p.id} className="work-item">
+        <div key={active} className="work-list" role="tabpanel">
+          {visible.map((p, i) => (
+            <article key={p.id} className="work-item" style={{ animationDelay: `${i * 80}ms` }}>
               <div className="work-media">
                 {p.image && <img src={p.image} alt={p.name} loading="lazy" />}
                 {p.preview && (
