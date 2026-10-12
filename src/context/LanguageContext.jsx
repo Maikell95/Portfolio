@@ -24,6 +24,12 @@ export const translations = {
       demo: "Ver en vivo",
       code: "Código",
       private: "Proyecto privado",
+      categories: {
+        webs: "Webs",
+        automations: "Automatizaciones",
+        minecraft: "Minecraft",
+        apps: "Apps",
+      },
     },
     services: {
       label: "servicios",
@@ -90,6 +96,12 @@ export const translations = {
       demo: "Live",
       code: "Code",
       private: "Private project",
+      categories: {
+        webs: "Websites",
+        automations: "Automations",
+        minecraft: "Minecraft",
+        apps: "Apps",
+      },
     },
     services: {
       label: "services",

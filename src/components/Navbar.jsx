@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 import "./Navbar.css";
 
-const Navbar = ({ darkMode, toggleTheme }) => {
+const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
 
@@ -36,13 +36,6 @@ const Navbar = ({ darkMode, toggleTheme }) => {
             title={language === "es" ? "Switch to English" : "Cambiar a español"}
           >
             {language === "es" ? "EN" : "ES"}
-          </button>
-          <button
-            className="nav-button"
-            onClick={toggleTheme}
-            aria-label={darkMode ? "Modo claro" : "Modo oscuro"}
-          >
-            {darkMode ? <FiSun /> : <FiMoon />}
           </button>
           <button
             className="nav-button menu-toggle"

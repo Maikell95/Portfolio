@@ -6,7 +6,7 @@ const Hero = () => {
 
   return (
     <header id="top" className="hero">
-      <div className="container hero-inner">
+      <div className="container">
         <div className="hero-text">
           <p className="hero-status mono">
             <span className="status-dot" /> {t.hero.status}
@@ -22,13 +22,6 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <img
-          className="hero-photo"
-          src={`${import.meta.env.BASE_URL}5046582651954858759.jpg`}
-          alt="Maikel Ferrer"
-          width="280"
-          height="280"
-        />
       </div>
     </header>
   );

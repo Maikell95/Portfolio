@@ -11,16 +11,6 @@
   --radius: 6px;
 }
 
-[data-theme="light"] {
-  --bg: #f6f5f1;
-  --bg-raised: #ffffff;
-  --text: #17181b;
-  --text-muted: #5e5c57;
-  --border: #dddbd4;
-  --accent: #a8650f;
-  --accent-ink: #ffffff;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +26,7 @@ body {
   font-family: var(--font-sans);
   background: var(--bg);
   color: var(--text);
+  font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -50,9 +41,9 @@ img {
 }
 
 .container {
-  max-width: 1080px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 .section {

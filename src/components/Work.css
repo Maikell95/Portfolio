@@ -1,3 +1,37 @@
+.work-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.work-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  font: 500 0.95rem var(--font-sans);
+  cursor: pointer;
+}
+
+.work-tab:hover {
+  color: var(--text);
+}
+
+.work-tab.active {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.work-tab-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
 .work-list {
   display: flex;
   flex-direction: column;

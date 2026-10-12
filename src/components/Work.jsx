@@ -1,13 +1,17 @@
+import { useState } from "react";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 import "./Work.css";
 
 const BASE = import.meta.env.BASE_URL;
 
+const categories = ["webs", "automations", "minecraft", "apps"];
+
 const projects = [
   {
     id: "cobble-quest",
     name: "Cobble Quest",
+    categories: ["minecraft", "webs"],
     kind: { es: "Tienda para servidor de Minecraft", en: "Minecraft server store" },
     text: {
       es: "Tienda de un servidor de Cobblemon en producción. El jugador paga con PayPal o tarjeta y recibe el rango o los objetos en el juego al momento: la API ejecuta los comandos en todos los servidores de la red a través del panel Pelican. Nadie entrega nada a mano.",
@@ -23,6 +27,7 @@ const projects = [
   {
     id: "lector-correos",
     name: "Lector de correos",
+    categories: ["automations"],
     kind: { es: "Automatización con n8n", en: "n8n automation" },
     text: {
       es: "Recibo mucho correo. Este flujo lo filtra y me avisa por Telegram solo cuando escribe un posible cliente. Reglas para lo obvio e IA gratuita solo para los casos dudosos, así no gasta nada.",
@@ -38,6 +43,7 @@ const projects = [
   {
     id: "midex",
     name: "MiDex",
+    categories: ["apps"],
     kind: { es: "App Android", en: "Android app" },
     text: {
       es: "Pokédex competitiva en español. Calculadora de daño con el motor oficial de Smogon, team builder, speed tiers y estadísticas de uso por tier. Funciona sin conexión y se actualiza sola cada día.",
@@ -49,6 +55,7 @@ const projects = [
   {
     id: "sabor-autentico",
     name: "Sabor Auténtico",
+    categories: ["webs"],
     kind: { es: "Web de restaurante", en: "Restaurant website" },
     text: {
       es: "Web completa para un restaurante: menú interactivo, carrito, reservas, autenticación y panel de administración. Modo claro y oscuro.",
@@ -62,6 +69,8 @@ const projects = [
 
 const Work = () => {
   const { t, language } = useLanguage();
+  const [active, setActive] = useState(categories[0]);
+  const visible = projects.filter((p) => p.categories.includes(active));
 
   return (
     <section id="work" className="section">
@@ -69,8 +78,25 @@ const Work = () => {
         <p className="section-label">{t.work.label}</p>
         <h2 className="section-title">{t.work.title}</h2>
 
-        <div className="work-list">
-          {projects.map((p) => (
+        <div className="work-tabs" role="tablist">
+          {categories.map((c) => (
+            <button
+              key={c}
+              role="tab"
+              aria-selected={active === c}
+              className={`work-tab ${active === c ? "active" : ""}`}
+              onClick={() => setActive(c)}
+            >
+              {t.work.categories[c]}
+              <span className="work-tab-count mono">
+                {projects.filter((p) => p.categories.includes(c)).length}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <div className="work-list" role="tabpanel">
+          {visible.map((p) => (
             <article key={p.id} className="work-item">
               <div className="work-media">
                 {p.image && <img src={p.image} alt={p.name} loading="lazy" />}
