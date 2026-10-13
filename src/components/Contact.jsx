@@ -32,7 +32,7 @@ const Contact = () => {
         "service_2fs9yrk",
         "template_pvzquo3",
         formRef.current,
-        "Tuo5eqSdqpZaoEry6",
+        "aFtSWaMGLLszp6Myw",
       )
       .then(
         () => {
