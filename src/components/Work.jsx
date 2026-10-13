@@ -46,6 +46,26 @@ const projects = [
     links: [{ type: "code", href: "https://github.com/Maikell95/Cobble-Quest-Net-Backend" }],
   },
   {
+    id: "captacion-clientes",
+    name: "Captación de clientes",
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n + IA", en: "n8n + AI automation" },
+    text: {
+      es: "Cada mensaje del formulario de este portafolio se convierte en un lead: la IA saca el tipo de trabajo, el presupuesto y el plazo y lo puntúa del 1 al 10. Se guarda, el cliente recibe una respuesta al momento en su idioma y a mí me llega el aviso. Si se relanza, no duplica nada.",
+      en: "Every message from this portfolio's contact form becomes a lead: AI extracts the type of work, budget and timeline and scores it from 1 to 10. It gets stored, the client gets an instant reply in their language and I get notified. Re-runs never duplicate anything.",
+    },
+    stack: "n8n · EmailJS · IMAP · SMTP · OpenRouter · Data Tables · Telegram",
+    preview: {
+      title: { es: "🟢 Lead bueno · 8/10 · web", en: "🟢 Good lead · 8/10 · web" },
+      lines: [
+        "Raul <raul@ejemplo.com>",
+        { es: "💰 200 USD · web para su negocio", en: "💰 200 USD · website for his business" },
+        { es: "✉️ Ya le llegó la respuesta automática", en: "✉️ Auto-reply already sent" },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/captacion-clientes" }],
+  },
+  {
     id: "lector-correos",
     name: "Lector de correos",
     categories: ["automations"],
@@ -100,6 +120,66 @@ const projects = [
       ],
     },
     links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/monitor-conexion" }],
+  },
+  {
+    id: "asistente-telegram",
+    name: "Asistente de Telegram",
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n + IA", en: "n8n + AI automation" },
+    text: {
+      es: "Le pregunto a mi bot por mi n8n y responde con datos reales: qué hace cada flujo, qué falló, cuántos leads llegaron o qué seguimientos tengo. Un puente en Docker le pasa los mensajes, así n8n no queda expuesto a internet y solo atiende mi chat.",
+      en: "I ask my bot about my n8n and it answers with real data: what each workflow does, what failed, how many leads came in or which follow-ups are due. A small Docker bridge relays the messages, so n8n is never exposed to the internet and only my chat gets answers.",
+    },
+    stack: "n8n · Telegram Bot API · Python · Docker · OpenRouter",
+    preview: {
+      title: { es: "¿Hubo errores esta semana?", en: "Any errors this week?" },
+      lines: [
+        { es: "Sí, 2:", en: "Yes, 2:" },
+        { es: "• 12/10 · Vigilante · sin DNS (cayó internet)", en: "• 12/10 · Watchdog · no DNS (internet down)" },
+        { es: "• 13/10 · Resumen · parámetro mal formado", en: "• 13/10 · Summary · malformed parameter" },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/asistente-telegram" }],
+  },
+  {
+    id: "respaldo-diario",
+    name: "Respaldo diario",
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n", en: "n8n automation" },
+    text: {
+      es: "Cada noche guarda todos mis flujos y tablas en un repo privado de GitHub, un archivo por flujo, y solo hace commit si algo cambió, así el historial muestra cambios reales. Además me manda el .zip por Telegram.",
+      en: "Every night it saves all my workflows and tables to a private GitHub repo, one file per workflow, and only commits when something changed, so the history shows real changes. It also sends me the .zip on Telegram.",
+    },
+    stack: "n8n · GitHub Git Data API · Telegram",
+    preview: {
+      title: { es: "Respaldo de n8n · 13/10", en: "n8n backup · 13/10" },
+      lines: [
+        { es: "7 flujos · 2 tablas", en: "7 workflows · 2 tables" },
+        { es: "GitHub: cambios guardados", en: "GitHub: changes saved" },
+        "respaldo-n8n-2026-10-13.zip",
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/respaldo-diario" }],
+  },
+  {
+    id: "resumen-semanal",
+    name: "Resumen semanal",
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n", en: "n8n automation" },
+    text: {
+      es: "Los lunes me llega por Telegram cómo fue la semana: leads y cuáles siguen sin respuesta, seguimientos de clientes pendientes o vencidos, errores de cada flujo y actividad en GitHub.",
+      en: "Every Monday I get a Telegram summary of the week: leads and which are still unanswered, client follow-ups due or overdue, errors per workflow and GitHub activity.",
+    },
+    stack: "n8n · Data Tables · GitHub API · Telegram",
+    preview: {
+      title: { es: "Resumen semanal", en: "Weekly summary" },
+      lines: [
+        { es: "📬 3 leads · 1 bueno", en: "📬 3 leads · 1 good" },
+        { es: "🎯 🔴 1 seguimiento vencido", en: "🎯 🔴 1 overdue follow-up" },
+        { es: "🐙 15 commits en 5 repos", en: "🐙 15 commits across 5 repos" },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/resumen-semanal" }],
   },
   {
     id: "midex",
