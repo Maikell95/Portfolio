@@ -74,6 +74,90 @@ const projects = [
     links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/captacion-clientes" }],
   },
   {
+    id: "atencion-rag",
+    featured: true,
+    name: { es: "Atención al cliente con IA (RAG)", en: "AI customer support (RAG)" },
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n + IA", en: "n8n + AI automation" },
+    text: {
+      es: "Un asistente que responde a los clientes solo con la información del negocio: horarios, precios, políticas. Cargas documentos y los busca por significado. Recuerda la conversación, contesta en el idioma del cliente y, si no sabe algo o piden una persona, me avisa por Telegram.",
+      en: "An assistant that answers customers using only the business's own information: hours, prices, policies. You upload documents and it searches them by meaning. It remembers the conversation, replies in the customer's language and, if it doesn't know or they ask for a person, pings me on Telegram.",
+    },
+    stack: "n8n · Supabase · pgvector · Edge Functions · OpenRouter · Telegram",
+    preview: {
+      title: { es: "Chat del negocio", en: "Business chat" },
+      lines: [
+        { es: "Cliente: ¿Abrís los sábados?", en: "Customer: Are you open on Saturdays?" },
+        { es: "Asistente: Sí, de 10:00 a 14:00.", en: "Assistant: Yes, from 10:00 to 14:00." },
+        { es: "Cliente: ¿y el domingo?", en: "Customer: and on Sunday?" },
+        { es: "Asistente: Los domingos cerramos.", en: "Assistant: We're closed on Sundays." },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/atencion-rag" }],
+  },
+  {
+    id: "devoluciones",
+    name: { es: "Devoluciones", en: "Returns" },
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n + IA", en: "n8n + AI automation" },
+    text: {
+      es: "Formulario de devolución para una tienda. Comprueba que el pedido existe y está en plazo, la IA clasifica el motivo y las reglas de la tienda deciden si toca cambio o reembolso. El cliente recibe su número por correo, al equipo le llega el aviso y al resolverla se le notifica al cliente.",
+      en: "Return request form for a store. It checks the order exists and is within the return window, AI classifies the reason and the store's rules decide between exchange or refund. The customer gets their number by email, the team gets notified and the customer hears back when it's resolved.",
+    },
+    stack: "n8n · Form · OpenRouter · Data Tables · SMTP · Telegram",
+    preview: {
+      title: { es: "📦 Devolución nueva · DEV-261014-GBA7", en: "📦 New return · DEV-261014-GBA7" },
+      lines: [
+        { es: "Pedido PED-1004 · hace 16 días", en: "Order PED-1004 · 16 days ago" },
+        { es: "Motivo: defectuoso · 📷 1 foto", en: "Reason: defective · 📷 1 photo" },
+        { es: "💡 Propuesta: reembolso", en: "💡 Proposal: refund" },
+        { es: "✉️ Confirmación enviada al cliente", en: "✉️ Confirmation sent to the customer" },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/devoluciones" }],
+  },
+  {
+    id: "inventario-stock",
+    name: { es: "Inventario con stock bajo", en: "Low-stock inventory" },
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n", en: "n8n automation" },
+    text: {
+      es: "Cada venta, entrada o ajuste actualiza el stock y queda registrado. Si un producto baja del mínimo avisa al momento, una sola vez al día. Cada mañana manda lo que falta, cuántos días aguanta y el pedido sugerido para cada proveedor. Si todo está bien, no manda nada.",
+      en: "Every sale, restock or adjustment updates stock and gets logged. When a product drops below its minimum it alerts right away, once a day at most. Every morning it sends what's running low, how many days it lasts and the suggested order per supplier. If everything's fine, it stays quiet.",
+    },
+    stack: "n8n · Webhook · Data Tables · Schedule · Telegram",
+    preview: {
+      title: { es: "🟠 Stock bajo · ACC-002", en: "🟠 Low stock · ACC-002" },
+      lines: [
+        { es: "Quedan 7 (mínimo 8) tras venta de 5", en: "7 left (minimum 8) after selling 5" },
+        { es: "Cobertura ≈ 10 días · TecnoHogar", en: "Lasts ≈ 10 days · TecnoHogar" },
+        { es: "Sugerido pedir: 21 u (325,50 €)", en: "Suggested order: 21 units (€325.50)" },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/inventario-stock" }],
+  },
+  {
+    id: "lector-documentos",
+    name: { es: "Lector de documentos", en: "Document reader" },
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n + IA", en: "n8n + AI automation" },
+    text: {
+      es: "Subes un contrato, factura o informe en PDF, DOCX o TXT y te devuelve lo importante: resumen, fechas y plazos, importes, riesgos y preguntas que conviene hacer. Los documentos largos los lee por partes. Si el PDF es escaneado o está vacío, te lo dice claro.",
+      en: "Upload a contract, invoice or report as PDF, DOCX or TXT and get back what matters: summary, dates and deadlines, amounts, risks and questions worth asking. Long documents are read in parts. If the PDF is scanned or empty, it tells you plainly.",
+    },
+    stack: "n8n · Form · Extract From File · OpenRouter · Data Tables · Telegram",
+    preview: {
+      title: { es: "📄 Contrato de desarrollo web", en: "📄 Web development contract" },
+      lines: [
+        { es: "• 18.500 € en pagos por hitos", en: "• €18,500 paid by milestones" },
+        { es: "• Mantenimiento con renovación automática", en: "• Maintenance renews automatically" },
+        { es: "⚠️ Cancelar antes de 12 meses: 50 % pendiente", en: "⚠️ Cancel before 12 months: 50% of the rest" },
+        { es: "❓ ¿Se firman los anexos antes de empezar?", en: "❓ Are the annexes signed before starting?" },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/lector-documentos" }],
+  },
+  {
     id: "lector-correos",
     name: { es: "Lector de correos", en: "Email reader" },
     categories: ["automations"],
