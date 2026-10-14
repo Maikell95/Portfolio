@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { FiMail, FiGithub, FiLinkedin, FiDownload } from "react-icons/fi";
+import { FiMail, FiGithub, FiLinkedin, FiDownload, FiSend } from "react-icons/fi";
 import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import "./Contact.css";
@@ -59,10 +59,10 @@ const Contact = () => {
     <section id="contact" className="section">
       <div className="container contact-inner">
         <div>
-          <p className="section-label">{t.contact.label}</p>
-          <h2 className="section-title">{t.contact.title}</h2>
-          <p className="contact-text">{t.contact.text}</p>
-          <ul className="contact-links">
+          <p className="section-label reveal">{t.contact.label}</p>
+          <h2 className="section-title reveal">{t.contact.title}</h2>
+          <p className="contact-text reveal">{t.contact.text}</p>
+          <ul className="contact-links reveal">
             {links.map((l) => (
               <li key={l.href}>
                 <a href={l.href} target="_blank" rel="noopener noreferrer">
@@ -78,7 +78,7 @@ const Contact = () => {
           </ul>
         </div>
 
-        <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
+        <form ref={formRef} onSubmit={handleSubmit} className="contact-form reveal" style={{ "--i": 2 }}>
           <label>
             {t.contact.name}
             <input name="name" value={formData.name} onChange={handleChange} required />
@@ -93,6 +93,7 @@ const Contact = () => {
           </label>
           <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
             {status === "sending" ? t.contact.sending : t.contact.send}
+            <FiSend className="btn-icon" aria-hidden="true" />
           </button>
           {status === "success" && <p className="form-status ok">{t.contact.success}</p>}
           {status === "error" && <p className="form-status error">{t.contact.error}</p>}

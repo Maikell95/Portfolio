@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 import "./Work.css";
@@ -47,7 +48,7 @@ const projects = [
   },
   {
     id: "captacion-clientes",
-    name: "Captación de clientes",
+    name: { es: "Captación de clientes", en: "Lead capture" },
     categories: ["automations"],
     kind: { es: "Automatización con n8n + IA", en: "n8n + AI automation" },
     text: {
@@ -58,7 +59,7 @@ const projects = [
     preview: {
       title: { es: "🟢 Lead bueno · 8/10 · web", en: "🟢 Good lead · 8/10 · web" },
       lines: [
-        "Raul <raul@ejemplo.com>",
+        { es: "Raul <raul@ejemplo.com>", en: "Raul <raul@example.com>" },
         { es: "💰 200 USD · web para su negocio", en: "💰 200 USD · website for his business" },
         { es: "✉️ Ya le llegó la respuesta automática", en: "✉️ Auto-reply already sent" },
       ],
@@ -67,7 +68,7 @@ const projects = [
   },
   {
     id: "lector-correos",
-    name: "Lector de correos",
+    name: { es: "Lector de correos", en: "Email reader" },
     categories: ["automations"],
     kind: { es: "Automatización con n8n", en: "n8n automation" },
     text: {
@@ -76,14 +77,18 @@ const projects = [
     },
     stack: "n8n · IMAP · Telegram · OpenRouter · Docker",
     preview: {
-      title: "Posible cliente (IA)",
-      lines: ["De: Roberto Díaz", "Asunto: Consulta", "Vi tu trabajo en GitHub y quería saber si haces sistemas de reservas…"],
+      title: { es: "Posible cliente (IA)", en: "Potential client (AI)" },
+      lines: [
+        { es: "De: Roberto Díaz", en: "From: Roberto Díaz" },
+        { es: "Asunto: Consulta", en: "Subject: Inquiry" },
+        { es: "Vi tu trabajo en GitHub y quería saber si haces sistemas de reservas…", en: "I saw your work on GitHub and wanted to know if you build booking systems…" },
+      ],
     },
     links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/lector-correos-clientes" }],
   },
   {
     id: "vigilante-errores",
-    name: "Vigilante de errores",
+    name: { es: "Vigilante de errores", en: "Error watchdog" },
     categories: ["automations"],
     kind: { es: "Automatización con n8n", en: "n8n automation" },
     text: {
@@ -92,7 +97,7 @@ const projects = [
     },
     stack: "n8n · n8n REST API · Telegram",
     preview: {
-      title: "Fallo en n8n",
+      title: { es: "Fallo en n8n", en: "n8n failure" },
       lines: [
         { es: "Flujo: Lector de correos", en: "Workflow: Email reader" },
         "Error: ETIMEDOUT",
@@ -103,7 +108,7 @@ const projects = [
   },
   {
     id: "monitor-conexion",
-    name: "Monitor de conexión",
+    name: { es: "Monitor de conexión", en: "Connection monitor" },
     categories: ["automations"],
     kind: { es: "Automatización con n8n", en: "n8n automation" },
     text: {
@@ -123,7 +128,7 @@ const projects = [
   },
   {
     id: "asistente-telegram",
-    name: "Asistente de Telegram",
+    name: { es: "Asistente de Telegram", en: "Telegram assistant" },
     categories: ["automations"],
     kind: { es: "Automatización con n8n + IA", en: "n8n + AI automation" },
     text: {
@@ -143,7 +148,7 @@ const projects = [
   },
   {
     id: "respaldo-diario",
-    name: "Respaldo diario",
+    name: { es: "Respaldo diario", en: "Daily backup" },
     categories: ["automations"],
     kind: { es: "Automatización con n8n", en: "n8n automation" },
     text: {
@@ -163,7 +168,7 @@ const projects = [
   },
   {
     id: "resumen-semanal",
-    name: "Resumen semanal",
+    name: { es: "Resumen semanal", en: "Weekly summary" },
     categories: ["automations"],
     kind: { es: "Automatización con n8n", en: "n8n automation" },
     text: {
@@ -195,18 +200,31 @@ const projects = [
   },
 ];
 
+// Al cambiar de pestaña: la lista sale hacia arriba y la nueva entra escalonada.
+const lista = {
+  initial: {},
+  animate: { transition: { staggerChildren: 0.07 } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.18, ease: "easeIn" } },
+};
+const tarjeta = {
+  initial: { opacity: 0, y: 18, scale: 0.985 },
+  animate: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: [0.2, 0.7, 0.2, 1] } },
+};
+
 const Work = () => {
   const { t, language } = useLanguage();
   const [active, setActive] = useState(categories[0]);
   const visible = projects.filter((p) => p.categories.includes(active));
+  const quieto = useReducedMotion();
+  const local = (v) => (typeof v === "string" ? v : v[language]);
 
   return (
     <section id="work" className="section">
       <div className="container">
-        <p className="section-label">{t.work.label}</p>
-        <h2 className="section-title">{t.work.title}</h2>
+        <p className="section-label reveal">{t.work.label}</p>
+        <h2 className="section-title reveal">{t.work.title}</h2>
 
-        <div className="work-tabs" role="tablist">
+        <div className="work-tabs reveal" role="tablist">
           {categories.map((c) => (
             <button
               key={c}
@@ -215,7 +233,14 @@ const Work = () => {
               className={`work-tab ${active === c ? "active" : ""}`}
               onClick={() => setActive(c)}
             >
-              {t.work.categories[c]}
+              {active === c && (
+                <motion.span
+                  layoutId="work-tab-pill"
+                  className="work-tab-pill"
+                  transition={quieto ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 34 }}
+                />
+              )}
+              <span className="work-tab-label">{t.work.categories[c]}</span>
               <span className="work-tab-count mono">
                 {projects.filter((p) => p.categories.includes(c)).length}
               </span>
@@ -223,11 +248,20 @@ const Work = () => {
           ))}
         </div>
 
-        <div key={active} className="work-list" role="tabpanel">
-          {visible.map((p, i) => (
-            <article key={p.id} className="work-item" style={{ animationDelay: `${i * 80}ms` }}>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={active}
+            className="work-list"
+            role="tabpanel"
+            variants={quieto ? undefined : lista}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+          {visible.map((p) => (
+            <motion.article key={p.id} className="work-item" variants={quieto ? undefined : tarjeta}>
               <div className="work-media">
-                {p.image && <img src={p.image} alt={p.name} loading="lazy" />}
+                {p.image && <img src={p.image} alt={local(p.name)} loading="lazy" />}
                 {p.preview && (
                   <div className="work-preview mono">
                     <strong>{typeof p.preview.title === "string" ? p.preview.title : p.preview.title[language]}</strong>
@@ -240,7 +274,7 @@ const Work = () => {
               </div>
               <div className="work-body">
                 <p className="work-kind mono">{p.kind[language]}</p>
-                <h3>{p.name}</h3>
+                <h3>{local(p.name)}</h3>
                 <p className="work-text">{p.text[language]}</p>
                 <p className="work-stack mono">{p.stack}</p>
                 <div className="work-links">
@@ -253,9 +287,10 @@ const Work = () => {
                   {p.links.length === 0 && <span className="work-private">{t.work.private}</span>}
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

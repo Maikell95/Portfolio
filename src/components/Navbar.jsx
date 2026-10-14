@@ -20,24 +20,33 @@ const Navbar = () => {
       .map((item) => document.querySelector(item.href))
       .filter(Boolean);
 
-    // Una sección cuenta como activa cuando cruza la franja central de la pantalla
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(`#${entry.target.id}`);
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px" },
-    );
-    sections.forEach((s) => observer.observe(s));
-
-    const onScroll = () => {
-      if (window.scrollY < 200) setActiveSection(null);
+    // Activa = la sección que contiene la línea central de la pantalla.
+    // Se recalcula al hacer scroll y cuando cambia la altura de las secciones (p. ej. al cambiar de pestaña).
+    const calcular = () => {
+      if (window.scrollY < 200) return setActiveSection(null);
+      const centro = window.innerHeight / 2;
+      const actual = sections.find((s) => {
+        const r = s.getBoundingClientRect();
+        return r.top <= centro && r.bottom > centro;
+      });
+      setActiveSection(actual ? `#${actual.id}` : null);
     };
+    let pendiente = false;
+    const onScroll = () => {
+      if (pendiente) return;
+      pendiente = true;
+      requestAnimationFrame(() => {
+        pendiente = false;
+        calcular();
+      });
+    };
+    const ro = new ResizeObserver(onScroll);
+    sections.forEach((s) => ro.observe(s));
     window.addEventListener("scroll", onScroll, { passive: true });
+    calcular();
 
     return () => {
-      observer.disconnect();
+      ro.disconnect();
       window.removeEventListener("scroll", onScroll);
     };
   }, []);

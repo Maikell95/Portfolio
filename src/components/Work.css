@@ -39,7 +39,6 @@
 }
 
 .work-item {
-  animation: work-in 0.35s ease both;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 2.5rem;
@@ -69,7 +68,7 @@
   gap: 0.35rem;
   padding: 1.5rem;
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--gold);
   border-radius: var(--radius);
   background: var(--bg-raised);
   font-size: 0.9rem;
@@ -135,15 +134,119 @@
   }
 }
 
-@keyframes work-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
+
+/* ---------- Microinteracciones ---------- */
+.work-tab {
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.work-tab:not(.active):hover {
+  border-color: var(--accent-2);
+}
+
+.work-media img,
+.work-preview {
+  transition: border-color 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.work-item:hover .work-media img {
+  border-color: var(--accent-2);
+  transform: translateY(-3px);
+}
+
+.work-item:hover .work-preview {
+  border-color: var(--accent-2);
+  border-left-color: var(--gold);
+}
+
+.work-links a svg {
+  transition: transform 0.2s ease;
+}
+
+.work-links a:hover svg {
+  transform: translate(2px, -2px);
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .work-item:hover .work-media img,
+  .work-links a:hover svg {
+    transform: none;
+  }
+}
+
+/* ---------- Cajas suavizadas ---------- */
+.work-tabs {
+  gap: 0.4rem;
+  padding: 0.35rem;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-raised) 60%, transparent);
+}
+
+.work-tab,
+.work-tab.active,
+.work-tab:not(.active):hover {
+  position: relative;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+}
+
+.work-tab-label,
+.work-tab-count {
+  position: relative;
+  z-index: 1;
+}
+
+.work-tab-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, var(--bg-raised)), color-mix(in srgb, var(--accent-2) 22%, var(--bg-raised)));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.work-tab.active .work-tab-count {
+  color: var(--gold);
+}
+
+.work-item {
+  padding: 1.75rem;
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  border-radius: 20px;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--bg-raised) 75%, transparent), transparent 70%);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.work-item:hover {
+  border-color: color-mix(in srgb, var(--accent-2) 40%, var(--border));
+  box-shadow: 0 18px 40px -28px color-mix(in srgb, var(--accent-2) 60%, transparent);
+}
+
+.work-list {
+  gap: 1.5rem;
+}
+
+.work-media img {
+  border-radius: 14px;
+  border-color: color-mix(in srgb, var(--border) 80%, transparent);
+}
+
+.work-preview {
+  border-radius: 14px;
+  border-color: color-mix(in srgb, var(--border) 80%, transparent);
+  background: linear-gradient(150deg, var(--bg-raised), color-mix(in srgb, var(--bg-raised) 40%, var(--bg)));
+}
+
+@media (max-width: 640px) {
+  .work-tabs {
+    border-radius: 18px;
+  }
+
   .work-item {
-    animation: none;
+    padding: 1.1rem;
+    border-radius: 16px;
   }
 }

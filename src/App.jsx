@@ -6,10 +6,15 @@ import Services from "./components/Services";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import DotGrid from "./components/DotGrid";
+import useReveal from "./hooks/useReveal";
 
 function App() {
+  useReveal();
+
   return (
     <LanguageProvider>
+      <DotGrid />
       <Navbar />
       <main>
         <Hero />

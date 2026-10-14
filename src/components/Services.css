@@ -48,3 +48,36 @@
     border-top: 1px solid var(--border);
   }
 }
+
+/* Línea verde → morado que se dibuja arriba al pasar el ratón */
+.service {
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.service::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.service:hover {
+  background-color: color-mix(in srgb, var(--bg-raised) 70%, transparent);
+}
+
+.service:hover::before {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service::before {
+    transition: none;
+  }
+}

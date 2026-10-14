@@ -49,8 +49,9 @@
   color: var(--text);
   background: var(--bg-raised);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.7rem 0.85rem;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   resize: vertical;
 }
 
@@ -58,10 +59,13 @@
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 .contact-form .btn {
-  align-self: flex-start;
+  align-self: stretch;
+  justify-content: center;
+  margin-top: 0.25rem;
 }
 
 .contact-form .btn:disabled {
@@ -85,5 +89,24 @@
   .contact-inner {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+}
+
+/* ---------- Microinteracciones ---------- */
+.contact-links a {
+  transition: color 0.2s ease;
+}
+
+.contact-links a svg {
+  transition: transform 0.2s ease;
+}
+
+.contact-links a:hover svg {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-links a:hover svg {
+    transform: none;
   }
 }
