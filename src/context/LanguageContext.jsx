@@ -24,7 +24,11 @@ export const translations = {
       demo: "Ver en vivo",
       code: "Código",
       private: "Proyecto privado",
+      prev: "Proyecto anterior",
+      next: "Proyecto siguiente",
+      goTo: "Ir al proyecto",
       categories: {
+        all: "Todos",
         webs: "Webs",
         apis: "APIs",
         automations: "Automatizaciones",
@@ -101,7 +105,11 @@ export const translations = {
       demo: "Live",
       code: "Code",
       private: "Private project",
+      prev: "Previous project",
+      next: "Next project",
+      goTo: "Go to project",
       categories: {
+        all: "All",
         webs: "Websites",
         apis: "APIs",
         automations: "Automations",

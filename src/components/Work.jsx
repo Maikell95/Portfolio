@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight, FiExternalLink, FiGithub } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 import "./Work.css";
 
 const BASE = import.meta.env.BASE_URL;
 
 const categories = ["webs", "apis", "automations", "minecraft", "apps"];
+
+// Cuántos proyectos de cada categoría salen en la pestaña "Todos".
+const POR_CATEGORIA_EN_TODOS = 2;
+
+// Proyectos destacados: añade `featured: true` a un proyecto para fijarlo arriba.
+// Sale el primero en sus categorías y es de los que se eligen para "Todos".
+// Si hay varios destacados, mantienen entre ellos el orden de esta lista.
 
 const projects = [
   {
@@ -211,12 +218,147 @@ const tarjeta = {
   animate: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: [0.2, 0.7, 0.2, 1] } },
 };
 
+const destacadosPrimero = (lista) => [...lista].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
+
+const deCategoria = (c) => destacadosPrimero(projects.filter((p) => p.categories.includes(c)));
+
+// "Todos": los N primeros de cada categoría, sin repetir los que están en varias.
+const todos = (() => {
+  const vistos = new Set();
+  const lista = [];
+  for (const c of categories) {
+    for (const p of deCategoria(c).slice(0, POR_CATEGORIA_EN_TODOS)) {
+      if (!vistos.has(p.id)) {
+        vistos.add(p.id);
+        lista.push(p);
+      }
+    }
+  }
+  return lista;
+})();
+
+const pestanas = ["all", ...categories];
+const proyectosDe = (c) => (c === "all" ? todos : deCategoria(c));
+
+// Carrusel de "Todos": entra de derecha a izquierda cada INTERVALO ms.
+// Se pausa con el ratón encima o con el foco dentro; flechas, puntos y arrastre con el dedo.
+const INTERVALO = 5500;
+const desliza = {
+  entra: (d) => ({ x: d > 0 ? 90 : -90, opacity: 0 }),
+  centro: { x: 0, opacity: 1, transition: { duration: 0.5, ease: [0.2, 0.7, 0.2, 1] } },
+  sale: (d) => ({ x: d > 0 ? -90 : 90, opacity: 0, transition: { duration: 0.28, ease: "easeIn" } }),
+};
+
+const Carrusel = ({ items, render, quieto, t }) => {
+  const [[i, dir], setPos] = useState([0, 1]);
+  const [pausa, setPausa] = useState(false);
+  const ir = (n, d) => setPos([(n + items.length) % items.length, d]);
+
+  useEffect(() => {
+    if (quieto || pausa || items.length < 2) return;
+    const id = setTimeout(() => ir(i + 1, 1), INTERVALO);
+    return () => clearTimeout(id);
+  }, [i, pausa, quieto, items.length]);
+
+  const p = items[i];
+  return (
+    <div
+      className="carrusel"
+      aria-roledescription="carousel"
+      onMouseEnter={() => setPausa(true)}
+      onMouseLeave={() => setPausa(false)}
+      onFocus={() => setPausa(true)}
+      onBlur={(e) => !e.currentTarget.contains(e.relatedTarget) && setPausa(false)}
+    >
+      <div className="carrusel-ventana">
+        <AnimatePresence initial={false} custom={dir} mode="popLayout">
+          <motion.div
+            key={p.id}
+            className="carrusel-diapo"
+            custom={dir}
+            variants={quieto ? undefined : desliza}
+            initial="entra"
+            animate="centro"
+            exit="sale"
+            drag={quieto ? false : "x"}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.25}
+            onDragEnd={(e, { offset, velocity }) => {
+              if (offset.x < -60 || velocity.x < -500) ir(i + 1, 1);
+              else if (offset.x > 60 || velocity.x > 500) ir(i - 1, -1);
+            }}
+          >
+            {render(p)}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="carrusel-controles">
+        <button type="button" className="carrusel-flecha" aria-label={t.work.prev} onClick={() => ir(i - 1, -1)}>
+          <FiChevronLeft aria-hidden="true" />
+        </button>
+        <div className="carrusel-puntos">
+          {items.map((x, n) => (
+            <button
+              key={x.id}
+              type="button"
+              className={`carrusel-punto ${n === i ? "on" : ""}`}
+              aria-label={`${t.work.goTo} ${n + 1}`}
+              aria-current={n === i}
+              onClick={() => ir(n, n >= i ? 1 : -1)}
+            >
+              {n === i && !quieto && (
+                <span key={i} className="carrusel-progreso" style={{ animationDuration: `${INTERVALO}ms`, animationPlayState: pausa ? "paused" : "running" }} />
+              )}
+            </button>
+          ))}
+        </div>
+        <button type="button" className="carrusel-flecha" aria-label={t.work.next} onClick={() => ir(i + 1, 1)}>
+          <FiChevronRight aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const Work = () => {
   const { t, language } = useLanguage();
-  const [active, setActive] = useState(categories[0]);
-  const visible = projects.filter((p) => p.categories.includes(active));
+  const [active, setActive] = useState("all");
+  const visible = proyectosDe(active);
   const quieto = useReducedMotion();
   const local = (v) => (typeof v === "string" ? v : v[language]);
+
+  const contenido = (p) => (
+    <>
+      <div className="work-media">
+        {p.image && <img src={p.image} alt={local(p.name)} loading="lazy" draggable="false" />}
+        {p.preview && (
+          <div className="work-preview mono">
+            <strong>{local(p.preview.title)}</strong>
+            {p.preview.lines.map((line) => {
+              const text = local(line);
+              return <span key={text}>{text}</span>;
+            })}
+          </div>
+        )}
+      </div>
+      <div className="work-body">
+        <p className="work-kind mono">{p.kind[language]}</p>
+        <h3>{local(p.name)}</h3>
+        <p className="work-text">{p.text[language]}</p>
+        <p className="work-stack mono">{p.stack}</p>
+        <div className="work-links">
+          {p.links.map((l) => (
+            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
+              {l.type === "demo" ? <FiExternalLink /> : <FiGithub />}
+              {l.type === "demo" ? t.work.demo : t.work.code}
+            </a>
+          ))}
+          {p.links.length === 0 && <span className="work-private">{t.work.private}</span>}
+        </div>
+      </div>
+    </>
+  );
 
   return (
     <section id="work" className="section">
@@ -225,7 +367,7 @@ const Work = () => {
         <h2 className="section-title reveal">{t.work.title}</h2>
 
         <div className="work-tabs reveal" role="tablist">
-          {categories.map((c) => (
+          {pestanas.map((c) => (
             <button
               key={c}
               role="tab"
@@ -241,9 +383,7 @@ const Work = () => {
                 />
               )}
               <span className="work-tab-label">{t.work.categories[c]}</span>
-              <span className="work-tab-count mono">
-                {projects.filter((p) => p.categories.includes(c)).length}
-              </span>
+              <span className="work-tab-count mono">{proyectosDe(c).length}</span>
             </button>
           ))}
         </div>
@@ -258,37 +398,22 @@ const Work = () => {
             animate="animate"
             exit="exit"
           >
-          {visible.map((p) => (
-            <motion.article key={p.id} className="work-item" variants={quieto ? undefined : tarjeta}>
-              <div className="work-media">
-                {p.image && <img src={p.image} alt={local(p.name)} loading="lazy" />}
-                {p.preview && (
-                  <div className="work-preview mono">
-                    <strong>{typeof p.preview.title === "string" ? p.preview.title : p.preview.title[language]}</strong>
-                    {p.preview.lines.map((line) => {
-                      const text = typeof line === "string" ? line : line[language];
-                      return <span key={text}>{text}</span>;
-                    })}
-                  </div>
-                )}
-              </div>
-              <div className="work-body">
-                <p className="work-kind mono">{p.kind[language]}</p>
-                <h3>{local(p.name)}</h3>
-                <p className="work-text">{p.text[language]}</p>
-                <p className="work-stack mono">{p.stack}</p>
-                <div className="work-links">
-                  {p.links.map((l) => (
-                    <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
-                      {l.type === "demo" ? <FiExternalLink /> : <FiGithub />}
-                      {l.type === "demo" ? t.work.demo : t.work.code}
-                    </a>
-                  ))}
-                  {p.links.length === 0 && <span className="work-private">{t.work.private}</span>}
-                </div>
-              </div>
-            </motion.article>
-          ))}
+            {active === "all" ? (
+              <motion.div variants={quieto ? undefined : tarjeta}>
+                <Carrusel
+                  items={visible}
+                  quieto={quieto}
+                  t={t}
+                  render={(p) => <article className="work-item">{contenido(p)}</article>}
+                />
+              </motion.div>
+            ) : (
+              visible.map((p) => (
+                <motion.article key={p.id} className="work-item" variants={quieto ? undefined : tarjeta}>
+                  {contenido(p)}
+                </motion.article>
+              ))
+            )}
           </motion.div>
         </AnimatePresence>
       </div>

@@ -202,3 +202,30 @@ footer {
   position: relative;
   z-index: 1;
 }
+
+/* ---------- Barra de desplazamiento: degradado verde → morado ---------- */
+/* Solo Firefox: admite colores lisos. En Chrome scrollbar-color anularía el degradado de abajo. */
+@supports (-moz-appearance: none) {
+  html {
+    scrollbar-color: var(--accent-2) var(--bg);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 85%, white), color-mix(in srgb, var(--accent-2) 85%, white));
+}

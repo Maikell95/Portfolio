@@ -250,3 +250,102 @@
     border-radius: 16px;
   }
 }
+
+/* ---------- Carrusel (pestaña Todos) ---------- */
+.carrusel-ventana {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.carrusel-diapo {
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.carrusel-diapo:active {
+  cursor: grabbing;
+}
+
+.carrusel-controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.carrusel-flecha {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-raised) 70%, transparent);
+  color: var(--text);
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.carrusel-flecha:hover {
+  border-color: var(--accent-2);
+  color: var(--accent);
+}
+
+.carrusel-flecha:active {
+  transform: scale(0.94);
+}
+
+.carrusel-puntos {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.carrusel-punto {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.2s ease;
+}
+
+.carrusel-punto:hover {
+  background: var(--text-muted);
+}
+
+.carrusel-punto.on {
+  width: 34px;
+  background: color-mix(in srgb, var(--accent) 25%, var(--border));
+}
+
+.carrusel-progreso {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform-origin: left;
+  animation: carrusel-llenar linear forwards;
+}
+
+@keyframes carrusel-llenar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrusel-punto,
+  .carrusel-flecha {
+    transition: none;
+  }
+
+  .carrusel-punto.on {
+    background: var(--accent);
+  }
+}
