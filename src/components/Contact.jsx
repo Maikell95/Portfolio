@@ -6,7 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 import "./Contact.css";
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const formRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
@@ -65,13 +65,17 @@ const Contact = () => {
           <ul className="contact-links reveal">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} target="_blank" rel="noopener noreferrer">
+                <a href={l.href} target="_blank" rel="noopener noreferrer" data-goatcounter-click={`contacto-${l.label}`}>
                   {l.icon} {l.label}
                 </a>
               </li>
             ))}
             <li>
-              <a href={`${import.meta.env.BASE_URL}cv.pdf`} download>
+              <a
+                href={`${import.meta.env.BASE_URL}${language === "en" ? "cv-en.pdf" : "cv.pdf"}`}
+                download
+                data-goatcounter-click={language === "en" ? "descarga-cv-en" : "descarga-cv-es"}
+              >
                 <FiDownload /> {t.contact.cv}
               </a>
             </li>
