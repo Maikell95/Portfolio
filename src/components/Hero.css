@@ -89,12 +89,18 @@
   padding: 0.15rem 0.35rem 0.9rem;
 }
 
+/* Altura fija: el aviso que entra y el que sale nunca cambian el alto de la página. */
 .avisos-lista {
+  position: relative;
   list-style: none;
   display: grid;
   gap: 0.6rem;
-  min-height: 25.5rem;
+  height: 27.5rem;
+  overflow: hidden;
   align-content: start;
+  overflow-anchor: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent);
+  mask-image: linear-gradient(to bottom, #000 82%, transparent);
 }
 
 .aviso {
@@ -140,13 +146,9 @@
     gap: 3rem;
   }
 
+  /* En pantallas estrechas caben tres avisos; el cuarto queda oculto bajo el degradado. */
   .avisos-lista {
-    min-height: 0;
-  }
-
-  /* En pantallas estrechas bastan tres avisos. */
-  .aviso:nth-child(n + 4) {
-    display: none;
+    height: 22rem;
   }
 }
 

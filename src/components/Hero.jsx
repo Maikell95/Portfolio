@@ -70,7 +70,7 @@ const Avisos = ({ es, local, titulo }) => {
         <span className="status-dot" /> {titulo}
       </p>
       <ol className="avisos-lista">
-        <AnimatePresence initial={false}>
+        <AnimatePresence initial={false} mode="popLayout">
           {vistos.map((n, edad) => {
             const a = avisos[n % avisos.length];
             return (
