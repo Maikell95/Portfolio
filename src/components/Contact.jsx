@@ -59,7 +59,6 @@ const Contact = () => {
     <section id="contact" className="section">
       <div className="container contact-inner">
         <div>
-          <p className="section-label reveal">{t.contact.label}</p>
           <h2 className="section-title reveal">{t.contact.title}</h2>
           <p className="contact-text reveal">{t.contact.text}</p>
           <ul className="contact-links reveal">

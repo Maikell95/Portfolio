@@ -20,14 +20,13 @@ const About = () => {
     <section id="about" className="section">
       <div className="container about-inner">
         <div>
-          <p className="section-label reveal">{t.about.label}</p>
           <h2 className="section-title reveal">{t.about.title}</h2>
           <p className="about-text reveal">{t.about.p1}</p>
           <p className="about-text reveal">{t.about.p2}</p>
         </div>
         <dl className="about-facts reveal" style={{ "--i": 2 }}>
           <dt>{t.about.stack}</dt>
-          <dd className="mono">{stack.join(" · ")}</dd>
+          <dd className="mono">{stack.join(", ")}</dd>
           <dt>{t.about.languages}</dt>
           <dd>{t.about.languagesValue}</dd>
         </dl>

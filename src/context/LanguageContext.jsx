@@ -11,16 +11,18 @@ export const translations = {
       contact: "Contacto",
     },
     hero: {
-      title: "Webs, APIs, automatizaciones y servicios dedicados para servidores de Minecraft.",
+      title: "Sistemas que trabajan solos.",
       intro:
-        "Soy Maikel Ferrer, desarrollador en La Habana y estudiante de último año de Ingeniería en Ciberseguridad. Hago webs y sistemas que trabajan solos: cobran, entregan y avisan.",
-      ctaWork: "Ver trabajo",
+        "Webs, APIs y automatizaciones con IA que cobran, responden y avisan sin que nadie esté mirando. Soy Maikel Ferrer, desarrollador en La Habana y estudiante de último año de Ingeniería en Ciberseguridad.",
+      ctaWork: "Ver proyectos",
       ctaContact: "Escríbeme",
       status: "Disponible para proyectos",
     },
     work: {
       label: "trabajo",
       title: "Lo que he hecho",
+      more: "Más proyectos",
+      feed: "Ahora mismo, en mis sistemas",
       demo: "Ver en vivo",
       code: "Código",
       private: "Proyecto privado",
@@ -65,7 +67,7 @@ export const translations = {
       p2: "Me gusta entender cómo funciona cada pieza por dentro antes de usarla.",
       stack: "Stack",
       languages: "Idiomas",
-      languagesValue: "Español nativo · Inglés B1+",
+      languagesValue: "Español nativo, inglés B1+",
     },
     contact: {
       label: "contacto",
@@ -92,16 +94,18 @@ export const translations = {
       contact: "Contact",
     },
     hero: {
-      title: "Websites, APIs, automations and dedicated services for Minecraft servers.",
+      title: "Systems that run on their own.",
       intro:
-        "I'm Maikel Ferrer, a developer based in Havana and a final-year Cybersecurity Engineering student. I build websites and systems that run on their own: they take payments, deliver and notify.",
-      ctaWork: "See work",
+        "Websites, APIs and AI automations that take payments, answer and alert you while nobody is watching. I'm Maikel Ferrer, a developer based in Havana and a final-year Cybersecurity Engineering student.",
+      ctaWork: "See projects",
       ctaContact: "Get in touch",
       status: "Available for projects",
     },
     work: {
       label: "work",
       title: "What I've built",
+      more: "More projects",
+      feed: "Right now, in my systems",
       demo: "Live",
       code: "Code",
       private: "Private project",
@@ -146,7 +150,7 @@ export const translations = {
       p2: "I like to understand how each piece works inside before I use it.",
       stack: "Stack",
       languages: "Languages",
-      languagesValue: "Spanish (native) · English B1+",
+      languagesValue: "Spanish (native), English B1+",
     },
     contact: {
       label: "contact",

@@ -7,7 +7,6 @@ const Services = () => {
   return (
     <section id="services" className="section">
       <div className="container">
-        <p className="section-label reveal">{t.services.label}</p>
         <h2 className="section-title reveal">{t.services.title}</h2>
         <div className="services-grid">
           {t.services.items.map((s, i) => (
