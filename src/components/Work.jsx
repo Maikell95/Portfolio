@@ -158,6 +158,46 @@ const projects = [
     links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/lector-documentos" }],
   },
   {
+    id: "analizador-excel",
+    name: { es: "Analizador de Excel", en: "Excel analyzer" },
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n + IA", en: "n8n + AI automation" },
+    text: {
+      es: "Le mando una hoja de cálculo a mi bot de Telegram y me explica todo lo que hay dentro: qué datos tiene, qué calcula cada fórmula, de qué hoja sale cada cosa y qué está mal. Los números los saca el código y la IA solo los explica, así no inventa nada. El texto del mensaje es la pregunta y la responde primero.",
+      en: "I send a spreadsheet to my Telegram bot and it explains everything inside: what data it holds, what each formula calculates, which sheet feeds which, and what's broken. The numbers come from code and the AI only explains them, so nothing is made up. The message text is the question, and it answers that first.",
+    },
+    stack: "n8n · Telegram · JavaScript · OpenRouter · Data Tables",
+    preview: {
+      title: { es: "📊 ventas_2026.xlsx", en: "📊 sales_2026.xlsx" },
+      lines: [
+        { es: "• 3 hojas, 1.240 filas, 412 fórmulas en 6 patrones", en: "• 3 sheets, 1,240 rows, 412 formulas in 6 patterns" },
+        { es: "• Ventas!H = Cantidad × Precio (119 filas)", en: "• Sales!H = Quantity × Price (119 rows)" },
+        { es: "⚠️ 3 celdas con #¡REF! en Resumen", en: "⚠️ 3 cells with #REF! in Summary" },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/analizador-excel" }],
+  },
+  {
+    id: "radar-empleo",
+    name: { es: "Radar de empleo", en: "Job radar" },
+    categories: ["automations"],
+    kind: { es: "Automatización con n8n", en: "n8n automation" },
+    text: {
+      es: "Vigila cada 30 minutos los canales de Telegram y las webs de empleo donde busco trabajo, puntúa cada oferta según mi perfil y me avisa al momento de las que encajan. Descarta las de otros países o fuera de lo mío, no repite ofertas y cada mañana a las 9 me manda el resumen.",
+      en: "Every 30 minutes it checks the Telegram channels and job sites I follow, scores each offer against my profile and alerts me right away about the ones that fit. It filters out country-locked or off-profile roles, never repeats an offer and sends me a summary every morning at 9.",
+    },
+    stack: "n8n · Telegram · JavaScript · RSS · Schedule",
+    preview: {
+      title: { es: "🔔 Oferta nueva", en: "🔔 New job" },
+      lines: [
+        "AI Engineer · Python · RAG",
+        { es: "🔥 6 puntos (IA, Python, remoto global)", en: "🔥 6 points (AI, Python, global remote)" },
+        { es: "☀️ 9:00 · resumen con 4 ofertas", en: "☀️ 9:00 · summary with 4 offers" },
+      ],
+    },
+    links: [{ type: "code", href: "https://github.com/Maikell95/n8n_automations/tree/main/radar-empleo" }],
+  },
+  {
     id: "lector-correos",
     name: { es: "Lector de correos", en: "Email reader" },
     categories: ["automations"],
